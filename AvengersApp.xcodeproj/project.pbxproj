@@ -58,16 +58,56 @@
 		49BF157924521AB200FD5BEE /* AvengersApp */ = {
 			isa = PBXGroup;
 			children = (
-				49BF157A24521AB200FD5BEE /* AppDelegate.swift */,
-				49BF157C24521AB200FD5BEE /* SceneDelegate.swift */,
-				49BF157E24521AB200FD5BEE /* ViewController.swift */,
-				49BF158024521AB200FD5BEE /* Main.storyboard */,
-				49BF158624521AB500FD5BEE /* Assets.xcassets */,
-				49BF158824521AB500FD5BEE /* LaunchScreen.storyboard */,
-				49BF158B24521AB500FD5BEE /* Info.plist */,
-				49BF158324521AB200FD5BEE /* AvengersApp.xcdatamodeld */,
+				49BF159124521CD000FD5BEE /* App */,
+				49BF159224521CFB00FD5BEE /* Resources */,
+				49BF159324521D1200FD5BEE /* Data */,
+				49BF159424521E1400FD5BEE /* Scenes */,
 			);
 			path = AvengersApp;
+			sourceTree = "<group>";
+		};
+		49BF159124521CD000FD5BEE /* App */ = {
+			isa = PBXGroup;
+			children = (
+				49BF157A24521AB200FD5BEE /* AppDelegate.swift */,
+				49BF157C24521AB200FD5BEE /* SceneDelegate.swift */,
+				49BF158B24521AB500FD5BEE /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		49BF159224521CFB00FD5BEE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				49BF158624521AB500FD5BEE /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		49BF159324521D1200FD5BEE /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				49BF158324521AB200FD5BEE /* AvengersApp.xcdatamodeld */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		49BF159424521E1400FD5BEE /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				49BF159524521E2C00FD5BEE /* Main */,
+				49BF158824521AB500FD5BEE /* LaunchScreen.storyboard */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		49BF159524521E2C00FD5BEE /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				49BF157E24521AB200FD5BEE /* ViewController.swift */,
+				49BF158024521AB200FD5BEE /* Main.storyboard */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,7 +329,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = AvengersApp/Info.plist;
+				INFOPLIST_FILE = AvengersApp/App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -306,7 +346,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = AvengersApp/Info.plist;
+				INFOPLIST_FILE = AvengersApp/App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
