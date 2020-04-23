@@ -9,23 +9,29 @@
 /* Begin PBXBuildFile section */
 		49BF157B24521AB200FD5BEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BF157A24521AB200FD5BEE /* AppDelegate.swift */; };
 		49BF157D24521AB200FD5BEE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BF157C24521AB200FD5BEE /* SceneDelegate.swift */; };
-		49BF157F24521AB200FD5BEE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BF157E24521AB200FD5BEE /* ViewController.swift */; };
-		49BF158224521AB200FD5BEE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49BF158024521AB200FD5BEE /* Main.storyboard */; };
 		49BF158524521AB200FD5BEE /* AvengersApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 49BF158324521AB200FD5BEE /* AvengersApp.xcdatamodeld */; };
 		49BF158724521AB500FD5BEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49BF158624521AB500FD5BEE /* Assets.xcassets */; };
 		49BF158A24521AB500FD5BEE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49BF158824521AB500FD5BEE /* LaunchScreen.storyboard */; };
+		49BF159824521F1400FD5BEE /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BF159724521F1400FD5BEE /* Coordinator.swift */; };
+		49BF159A24521F6500FD5BEE /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BF159924521F6500FD5BEE /* AppCoordinator.swift */; };
+		49BF159E245221BB00FD5BEE /* AvengersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BF159C245221BB00FD5BEE /* AvengersViewController.swift */; };
+		49BF159F245221BB00FD5BEE /* AvengersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49BF159D245221BB00FD5BEE /* AvengersViewController.xib */; };
+		49BF15A12452224B00FD5BEE /* AvengersCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BF15A02452224B00FD5BEE /* AvengersCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		49BF157724521AB200FD5BEE /* AvengersApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AvengersApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49BF157A24521AB200FD5BEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49BF157C24521AB200FD5BEE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		49BF157E24521AB200FD5BEE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		49BF158124521AB200FD5BEE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		49BF158424521AB200FD5BEE /* AvengersApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AvengersApp.xcdatamodel; sourceTree = "<group>"; };
 		49BF158624521AB500FD5BEE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		49BF158924521AB500FD5BEE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		49BF158B24521AB500FD5BEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49BF159724521F1400FD5BEE /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		49BF159924521F6500FD5BEE /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		49BF159C245221BB00FD5BEE /* AvengersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvengersViewController.swift; sourceTree = "<group>"; };
+		49BF159D245221BB00FD5BEE /* AvengersViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvengersViewController.xib; sourceTree = "<group>"; };
+		49BF15A02452224B00FD5BEE /* AvengersCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvengersCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +66,9 @@
 			children = (
 				49BF159124521CD000FD5BEE /* App */,
 				49BF159224521CFB00FD5BEE /* Resources */,
+				49BF15A22452307F00FD5BEE /* Common */,
 				49BF159324521D1200FD5BEE /* Data */,
+				49BF159624521EEF00FD5BEE /* Coordinators */,
 				49BF159424521E1400FD5BEE /* Scenes */,
 			);
 			path = AvengersApp;
@@ -95,19 +103,44 @@
 		49BF159424521E1400FD5BEE /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				49BF159524521E2C00FD5BEE /* Main */,
+				49BF159B2452219800FD5BEE /* Avengers */,
 				49BF158824521AB500FD5BEE /* LaunchScreen.storyboard */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
 		};
-		49BF159524521E2C00FD5BEE /* Main */ = {
+		49BF159624521EEF00FD5BEE /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
-				49BF157E24521AB200FD5BEE /* ViewController.swift */,
-				49BF158024521AB200FD5BEE /* Main.storyboard */,
+				49BF159724521F1400FD5BEE /* Coordinator.swift */,
+				49BF159924521F6500FD5BEE /* AppCoordinator.swift */,
+				49BF15A02452224B00FD5BEE /* AvengersCoordinator.swift */,
 			);
-			path = Main;
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		49BF159B2452219800FD5BEE /* Avengers */ = {
+			isa = PBXGroup;
+			children = (
+				49BF159C245221BB00FD5BEE /* AvengersViewController.swift */,
+				49BF159D245221BB00FD5BEE /* AvengersViewController.xib */,
+			);
+			path = Avengers;
+			sourceTree = "<group>";
+		};
+		49BF15A22452307F00FD5BEE /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				49BF15A32452308D00FD5BEE /* Protocols */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		49BF15A32452308D00FD5BEE /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,8 +202,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				49BF158A24521AB500FD5BEE /* LaunchScreen.storyboard in Resources */,
+				49BF159F245221BB00FD5BEE /* AvengersViewController.xib in Resources */,
 				49BF158724521AB500FD5BEE /* Assets.xcassets in Resources */,
-				49BF158224521AB200FD5BEE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,8 +214,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49BF159E245221BB00FD5BEE /* AvengersViewController.swift in Sources */,
+				49BF159A24521F6500FD5BEE /* AppCoordinator.swift in Sources */,
 				49BF158524521AB200FD5BEE /* AvengersApp.xcdatamodeld in Sources */,
-				49BF157F24521AB200FD5BEE /* ViewController.swift in Sources */,
+				49BF15A12452224B00FD5BEE /* AvengersCoordinator.swift in Sources */,
+				49BF159824521F1400FD5BEE /* Coordinator.swift in Sources */,
 				49BF157B24521AB200FD5BEE /* AppDelegate.swift in Sources */,
 				49BF157D24521AB200FD5BEE /* SceneDelegate.swift in Sources */,
 			);
@@ -191,14 +227,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		49BF158024521AB200FD5BEE /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				49BF158124521AB200FD5BEE /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		49BF158824521AB500FD5BEE /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
