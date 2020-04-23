@@ -20,7 +20,9 @@ class AppCoordinator: Coordinator {
         configureUI()
 
         let tabBarCoordinators: [Coordinator] = [
-            AvengersCoordinator()
+            AvengersCoordinator(),
+            BattlesCoordinator(),
+            VillainsCoordinator()
         ]
         
         tabBarCoordinators.forEach { [weak self] coordinator in
@@ -31,7 +33,7 @@ class AppCoordinator: Coordinator {
         }
         
         let tabBarController = UITabBarController()
-        tabBarController.tabBar.tintColor = .black
+        tabBarController.tabBar.tintColor = UIColor.blueMain
         tabBarController.viewControllers = tabBarCoordinators.map { $0.presenter }
         
         window.rootViewController = tabBarController

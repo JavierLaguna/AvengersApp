@@ -12,7 +12,7 @@ import UIKit
 class Coordinator {
     fileprivate var childCoordinators: [Coordinator] = []
     
-    var presenter: UINavigationController
+    let presenter: UINavigationController
     
     init(presenter: UINavigationController = UINavigationController()) {
         self.presenter = presenter

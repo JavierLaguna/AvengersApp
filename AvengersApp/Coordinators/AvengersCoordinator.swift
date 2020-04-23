@@ -11,7 +11,8 @@ import UIKit
 class AvengersCoordinator: Coordinator {
     
     override func start() {
-        presenter.tabBarItem.image = UIImage(systemName: "heart.fill")
+        presenter.tabBarItem.image = UIImage(imageLiteralResourceName: "ic_tab_heroes")
+        presenter.tabBarItem.title = "Avengers"
         
         let avengersViewController = AvengersViewController()
         presenter.pushViewController(avengersViewController, animated: false)
