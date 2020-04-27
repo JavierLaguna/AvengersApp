@@ -12,6 +12,9 @@ class AppCoordinator: Coordinator {
     
     let window: UIWindow
     
+    // MARK: Repositories Injection
+    let avengersRepository: AvengersRepository = AvengersRepositoryCoreData()
+    
     init(window: UIWindow) {
         self.window = window
     }
@@ -20,7 +23,7 @@ class AppCoordinator: Coordinator {
         configureUI()
 
         let tabBarCoordinators: [Coordinator] = [
-            AvengersCoordinator(),
+            AvengersCoordinator(repository: avengersRepository),
             BattlesCoordinator(),
             VillainsCoordinator()
         ]

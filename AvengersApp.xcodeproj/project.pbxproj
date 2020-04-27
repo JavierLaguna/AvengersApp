@@ -29,6 +29,13 @@
 		49BF15BF245242AF00FD5BEE /* HeroCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49BF15BD245242AF00FD5BEE /* HeroCell.xib */; };
 		49BF15C12452430100FD5BEE /* NibLoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BF15C02452430100FD5BEE /* NibLoadableView.swift */; };
 		49BF15C32452431900FD5BEE /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BF15C22452431900FD5BEE /* ReusableView.swift */; };
+		49D6581024573F65000EBF4B /* AvengersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D6580F24573F65000EBF4B /* AvengersViewModel.swift */; };
+		49D658122457407C000EBF4B /* HeroCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D658112457407C000EBF4B /* HeroCellViewModel.swift */; };
+		49D6581424574858000EBF4B /* AvengersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D6581324574858000EBF4B /* AvengersRepository.swift */; };
+		49D658172457495D000EBF4B /* AvengersRepositoryCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D658162457495D000EBF4B /* AvengersRepositoryCoreData.swift */; };
+		49D6581924574A52000EBF4B /* CoreDataDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D6581824574A52000EBF4B /* CoreDataDatabase.swift */; };
+		49D6581B24574C01000EBF4B /* CoreDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D6581A24574C01000EBF4B /* CoreDataRepository.swift */; };
+		49D6581F24575E1B000EBF4B /* avengers_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 49D6581E24575E1B000EBF4B /* avengers_data.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +63,13 @@
 		49BF15BD245242AF00FD5BEE /* HeroCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroCell.xib; sourceTree = "<group>"; };
 		49BF15C02452430100FD5BEE /* NibLoadableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadableView.swift; sourceTree = "<group>"; };
 		49BF15C22452431900FD5BEE /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
+		49D6580F24573F65000EBF4B /* AvengersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvengersViewModel.swift; sourceTree = "<group>"; };
+		49D658112457407C000EBF4B /* HeroCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroCellViewModel.swift; sourceTree = "<group>"; };
+		49D6581324574858000EBF4B /* AvengersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvengersRepository.swift; sourceTree = "<group>"; };
+		49D658162457495D000EBF4B /* AvengersRepositoryCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvengersRepositoryCoreData.swift; sourceTree = "<group>"; };
+		49D6581824574A52000EBF4B /* CoreDataDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataDatabase.swift; sourceTree = "<group>"; };
+		49D6581A24574C01000EBF4B /* CoreDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRepository.swift; sourceTree = "<group>"; };
+		49D6581E24575E1B000EBF4B /* avengers_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = avengers_data.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,7 +135,10 @@
 		49BF159324521D1200FD5BEE /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				49D6581D24575E0E000EBF4B /* JSON */,
+				49D65815245748F8000EBF4B /* Repositories */,
 				49BF158324521AB200FD5BEE /* AvengersApp.xcdatamodeld */,
+				49D6581824574A52000EBF4B /* CoreDataDatabase.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -154,6 +171,7 @@
 			children = (
 				49BF159C245221BB00FD5BEE /* AvengersViewController.swift */,
 				49BF159D245221BB00FD5BEE /* AvengersViewController.xib */,
+				49D6580F24573F65000EBF4B /* AvengersViewModel.swift */,
 			);
 			path = Avengers;
 			sourceTree = "<group>";
@@ -223,8 +241,35 @@
 			children = (
 				49BF15BC245242AF00FD5BEE /* HeroCell.swift */,
 				49BF15BD245242AF00FD5BEE /* HeroCell.xib */,
+				49D658112457407C000EBF4B /* HeroCellViewModel.swift */,
 			);
 			path = Hero;
+			sourceTree = "<group>";
+		};
+		49D65815245748F8000EBF4B /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				49D6581C24574FED000EBF4B /* CoreDataRepos */,
+				49D6581324574858000EBF4B /* AvengersRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		49D6581C24574FED000EBF4B /* CoreDataRepos */ = {
+			isa = PBXGroup;
+			children = (
+				49D6581A24574C01000EBF4B /* CoreDataRepository.swift */,
+				49D658162457495D000EBF4B /* AvengersRepositoryCoreData.swift */,
+			);
+			path = CoreDataRepos;
+			sourceTree = "<group>";
+		};
+		49D6581D24575E0E000EBF4B /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				49D6581E24575E1B000EBF4B /* avengers_data.json */,
+			);
+			path = JSON;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,6 +336,7 @@
 				49BF15BF245242AF00FD5BEE /* HeroCell.xib in Resources */,
 				49BF15AF24523F4E00FD5BEE /* VillainsViewController.xib in Resources */,
 				49BF15B62452407C00FD5BEE /* BattlesViewController.xib in Resources */,
+				49D6581F24575E1B000EBF4B /* avengers_data.json in Resources */,
 				49BF158724521AB500FD5BEE /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -311,7 +357,13 @@
 				49BF15C32452431900FD5BEE /* ReusableView.swift in Sources */,
 				49BF159824521F1400FD5BEE /* Coordinator.swift in Sources */,
 				49BF15AE24523F4E00FD5BEE /* VillainsViewController.swift in Sources */,
+				49D6581924574A52000EBF4B /* CoreDataDatabase.swift in Sources */,
+				49D6581024573F65000EBF4B /* AvengersViewModel.swift in Sources */,
+				49D6581424574858000EBF4B /* AvengersRepository.swift in Sources */,
+				49D658172457495D000EBF4B /* AvengersRepositoryCoreData.swift in Sources */,
+				49D6581B24574C01000EBF4B /* CoreDataRepository.swift in Sources */,
 				49BF15B8245240C000FD5BEE /* BattlesCoordinator.swift in Sources */,
+				49D658122457407C000EBF4B /* HeroCellViewModel.swift in Sources */,
 				49BF15B124523F6C00FD5BEE /* VillainsCoordinator.swift in Sources */,
 				49BF15AA24523E7D00FD5BEE /* UIColor.swift in Sources */,
 				49BF157B24521AB200FD5BEE /* AppDelegate.swift in Sources */,

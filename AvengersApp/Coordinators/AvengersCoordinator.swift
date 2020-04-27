@@ -10,11 +10,23 @@ import UIKit
 
 class AvengersCoordinator: Coordinator {
     
+    let repository: AvengersRepository
+    
+    init(repository: AvengersRepository) {
+        self.repository = repository
+
+        super.init()        
+    }
+
     override func start() {
         presenter.tabBarItem.image = UIImage(imageLiteralResourceName: "ic_tab_heroes")
         presenter.tabBarItem.title = "Avengers"
         
-        let avengersViewController = AvengersViewController()
+        let avengersViewModel = AvengersViewModel(repository: repository)
+        let avengersViewController = AvengersViewController(viewModel: avengersViewModel)
+        
+        avengersViewModel.viewDelegate = avengersViewController
+
         presenter.pushViewController(avengersViewController, animated: false)
     }
 
