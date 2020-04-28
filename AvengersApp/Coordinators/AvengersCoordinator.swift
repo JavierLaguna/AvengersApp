@@ -26,9 +26,20 @@ class AvengersCoordinator: Coordinator {
         let avengersViewController = AvengersViewController(viewModel: avengersViewModel)
         
         avengersViewModel.viewDelegate = avengersViewController
+        avengersViewModel.coordinatorDelegate = self
 
         presenter.pushViewController(avengersViewController, animated: false)
     }
 
     override func finish() {}
+}
+
+// MARK: AvengersCoordinatorDelegate
+extension AvengersCoordinator: AvengersCoordinatorDelegate{
+    func didSelect(avenger: Avenger) {
+        
+        let detailVC = HeroDetailViewController()
+        presenter.pushViewController(detailVC, animated: true)
+    }
+    
 }

@@ -71,7 +71,7 @@ extension AvengersViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // TODO
+        viewModel.didSelectRow(at: indexPath)
     }
 }
 

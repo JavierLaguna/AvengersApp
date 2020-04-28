@@ -15,6 +15,8 @@
 		49AE3DCB2458A9460099D447 /* villains_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 49AE3DCA2458A9460099D447 /* villains_data.json */; };
 		49AE3DCD2458A9BF0099D447 /* VillainsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AE3DCC2458A9BF0099D447 /* VillainsViewModel.swift */; };
 		49AE3DCF2458AB340099D447 /* VillainsRepositoryCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AE3DCE2458AB340099D447 /* VillainsRepositoryCoreData.swift */; };
+		49AE3DD32458AEDD0099D447 /* HeroDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AE3DD12458AEDD0099D447 /* HeroDetailViewController.swift */; };
+		49AE3DD42458AEDD0099D447 /* HeroDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49AE3DD22458AEDD0099D447 /* HeroDetailViewController.xib */; };
 		49BF157B24521AB200FD5BEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BF157A24521AB200FD5BEE /* AppDelegate.swift */; };
 		49BF157D24521AB200FD5BEE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BF157C24521AB200FD5BEE /* SceneDelegate.swift */; };
 		49BF158524521AB200FD5BEE /* AvengersApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 49BF158324521AB200FD5BEE /* AvengersApp.xcdatamodeld */; };
@@ -55,6 +57,8 @@
 		49AE3DCA2458A9460099D447 /* villains_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = villains_data.json; sourceTree = "<group>"; };
 		49AE3DCC2458A9BF0099D447 /* VillainsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VillainsViewModel.swift; sourceTree = "<group>"; };
 		49AE3DCE2458AB340099D447 /* VillainsRepositoryCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VillainsRepositoryCoreData.swift; sourceTree = "<group>"; };
+		49AE3DD12458AEDD0099D447 /* HeroDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailViewController.swift; sourceTree = "<group>"; };
+		49AE3DD22458AEDD0099D447 /* HeroDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroDetailViewController.xib; sourceTree = "<group>"; };
 		49BF157724521AB200FD5BEE /* AvengersApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AvengersApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49BF157A24521AB200FD5BEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49BF157C24521AB200FD5BEE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -113,6 +117,15 @@
 				49AE3DC62458A13A0099D447 /* Log.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		49AE3DD02458AEA10099D447 /* HeroDetail */ = {
+			isa = PBXGroup;
+			children = (
+				49AE3DD12458AEDD0099D447 /* HeroDetailViewController.swift */,
+				49AE3DD22458AEDD0099D447 /* HeroDetailViewController.xib */,
+			);
+			path = HeroDetail;
 			sourceTree = "<group>";
 		};
 		49BF156E24521AB200FD5BEE = {
@@ -179,6 +192,7 @@
 		49BF159424521E1400FD5BEE /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				49AE3DD02458AEA10099D447 /* HeroDetail */,
 				49BF159B2452219800FD5BEE /* Avengers */,
 				49BF15B22452404900FD5BEE /* Battles */,
 				49BF15AB24523F0000FD5BEE /* Villains */,
@@ -385,6 +399,7 @@
 				49AE3DCB2458A9460099D447 /* villains_data.json in Resources */,
 				49BF15AF24523F4E00FD5BEE /* VillainsViewController.xib in Resources */,
 				49BF15B62452407C00FD5BEE /* BattlesViewController.xib in Resources */,
+				49AE3DD42458AEDD0099D447 /* HeroDetailViewController.xib in Resources */,
 				49D6581F24575E1B000EBF4B /* avengers_data.json in Resources */,
 				49BF158724521AB500FD5BEE /* Assets.xcassets in Resources */,
 			);
@@ -404,6 +419,7 @@
 				49BF159A24521F6500FD5BEE /* AppCoordinator.swift in Sources */,
 				49BF158524521AB200FD5BEE /* AvengersApp.xcdatamodeld in Sources */,
 				49BF15A12452224B00FD5BEE /* AvengersCoordinator.swift in Sources */,
+				49AE3DD32458AEDD0099D447 /* HeroDetailViewController.swift in Sources */,
 				49BF15C32452431900FD5BEE /* ReusableView.swift in Sources */,
 				49AE3DC72458A13A0099D447 /* Log.swift in Sources */,
 				49BF159824521F1400FD5BEE /* Coordinator.swift in Sources */,

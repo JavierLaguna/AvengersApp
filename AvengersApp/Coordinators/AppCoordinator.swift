@@ -61,7 +61,7 @@ class AppCoordinator: Coordinator {
     
     // MARK: Private functions
     private func configureUI() {
-        UINavigationBar.appearance().tintColor = .orange
+        UINavigationBar.appearance().tintColor = .blueMain
     }
 }
 
