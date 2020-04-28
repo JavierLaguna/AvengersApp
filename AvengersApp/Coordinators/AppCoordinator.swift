@@ -21,6 +21,10 @@ class AppCoordinator: Coordinator {
         return AvengersRepositoryCoreData()
     }()
     
+    lazy var villainsRepository: VillainsRepository = {
+        return VillainsRepositoryCoreData()
+    }()
+    
     init(window: UIWindow) {
         self.window = window
     }
@@ -35,7 +39,7 @@ class AppCoordinator: Coordinator {
         let tabBarCoordinators: [Coordinator] = [
             AvengersCoordinator(repository: avengersRepository),
             BattlesCoordinator(),
-            VillainsCoordinator()
+            VillainsCoordinator(repository: villainsRepository)
         ]
         
         tabBarCoordinators.forEach { [weak self] coordinator in
@@ -68,6 +72,7 @@ extension AppCoordinator {
     private func loadJsonData() {
         do {
             try loadAvengers()
+            try loadVillains()
             
             settingsRepository.setFirstAppLaunch(false)
         } catch {
@@ -94,4 +99,24 @@ extension AppCoordinator {
         
         avengersRepository.saveAvengers(avengers)
     }
+    
+    private func loadVillains() throws {
+           guard let pathURL = Bundle.main.url(forResource: "villains_data", withExtension: "json") else {
+               return Log.error("Can not find `villains_data` resource")
+           }
+           
+           let data = try Data(contentsOf: pathURL)
+           let heroList = try JSONDecoder().decode([Hero].self, from: data)
+           
+           let villains: [Villain] = heroList.compactMap {
+               let villain = villainsRepository.createVillain()
+               villain?.name = $0.name
+               villain?.image = $0.image
+               villain?.power = Int16($0.power)
+               villain?.biography = $0.biography
+               return villain
+           }
+           
+           villainsRepository.saveVillains(villains)
+       }
 }

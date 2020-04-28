@@ -22,4 +22,11 @@ struct HeroCellViewModel {
         self.power = Int(avenger.power)
         self.tintColor = .blueMain
     }
+    
+    init(_ villain: Villain) {
+        self.nameTitle = villain.name ?? ""
+        self.image = UIImage(imageLiteralResourceName: villain.image ?? "")
+        self.power = Int(villain.power)
+        self.tintColor = .redMain
+    }
 }

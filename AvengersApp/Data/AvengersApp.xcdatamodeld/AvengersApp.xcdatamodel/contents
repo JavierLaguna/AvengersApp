@@ -6,7 +6,14 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="power" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
+    <entity name="Villain" representedClassName="Villain" syncable="YES" codeGenerationType="class">
+        <attribute name="biography" optional="YES" attributeType="String"/>
+        <attribute name="image" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="power" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
     <elements>
         <element name="Avenger" positionX="-63" positionY="-18" width="128" height="103"/>
+        <element name="Villain" positionX="-63" positionY="9" width="128" height="103"/>
     </elements>
 </model>

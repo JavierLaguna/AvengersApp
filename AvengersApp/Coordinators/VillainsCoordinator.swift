@@ -10,13 +10,25 @@ import UIKit
 
 class VillainsCoordinator: Coordinator {
     
+    let repository: VillainsRepository
+    
+    init(repository: VillainsRepository) {
+        self.repository = repository
+        
+        super.init()
+    }
+    
     override func start() {
         presenter.tabBarItem.image = UIImage(imageLiteralResourceName: "ic_tab_villain")
         presenter.tabBarItem.title = "Villains"
         
-        let villainsViewController = VillainsViewController()
+        let villainsViewModel = VillainsViewModel(repository: repository)
+        let villainsViewController = VillainsViewController(viewModel: villainsViewModel)
+        
+        villainsViewModel.viewDelegate = villainsViewController
+        
         presenter.pushViewController(villainsViewController, animated: false)
     }
-
+    
     override func finish() {}
 }

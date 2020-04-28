@@ -9,22 +9,79 @@
 import UIKit
 
 class VillainsViewController: UIViewController {
-
+    
+    // MARK: IBOutlets
+    @IBOutlet private weak var tableView: UITableView!
+    
+    // MARK: Constants
+    let viewModel: VillainsViewModel
+    
+    // MARK: Lifecycle
+    init(viewModel: VillainsViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        viewModel.viewWasLoaded()
+        
+        configureUI()
+        configureTable()
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    // MARK: Private functions
+    private func configureUI() {
+        title = "Villains"
+        
+        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.redMain]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
     }
-    */
+    
+    private func configureTable() {
+        tableView.register(UINib(nibName: HeroCell.nibName, bundle: nil), forCellReuseIdentifier: HeroCell.defaultReuseIdentifier)
+        
+        tableView.tableFooterView = UIView()
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+    }
+}
 
+// MARK: UITableViewDataSource, UITableViewDelegate
+extension VillainsViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.numberOfRows(in: section)
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: HeroCell.defaultReuseIdentifier, for: indexPath) as? HeroCell,
+            let cellViewModel = viewModel.viewModelCell(at: indexPath) else {
+                return UITableViewCell()
+        }
+        
+        cell.viewModel = cellViewModel
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // TODO
+    }
+}
+
+// MARK: VillainsViewDelegate
+extension VillainsViewController: VillainsViewDelegate {
+    func villainsFetched() {
+        tableView.reloadData()
+    }
+    
+    func errorFetchingVillains() {
+        // TODO
+    }
 }

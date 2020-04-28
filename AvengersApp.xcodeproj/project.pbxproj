@@ -11,6 +11,10 @@
 		49AE3DC124589C790099D447 /* SettingsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AE3DC024589C790099D447 /* SettingsRepository.swift */; };
 		49AE3DC424589D6F0099D447 /* SettingsRepositoryUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AE3DC324589D6F0099D447 /* SettingsRepositoryUserDefaults.swift */; };
 		49AE3DC72458A13A0099D447 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AE3DC62458A13A0099D447 /* Log.swift */; };
+		49AE3DC92458A6210099D447 /* VillainsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AE3DC82458A6210099D447 /* VillainsRepository.swift */; };
+		49AE3DCB2458A9460099D447 /* villains_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 49AE3DCA2458A9460099D447 /* villains_data.json */; };
+		49AE3DCD2458A9BF0099D447 /* VillainsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AE3DCC2458A9BF0099D447 /* VillainsViewModel.swift */; };
+		49AE3DCF2458AB340099D447 /* VillainsRepositoryCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AE3DCE2458AB340099D447 /* VillainsRepositoryCoreData.swift */; };
 		49BF157B24521AB200FD5BEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BF157A24521AB200FD5BEE /* AppDelegate.swift */; };
 		49BF157D24521AB200FD5BEE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BF157C24521AB200FD5BEE /* SceneDelegate.swift */; };
 		49BF158524521AB200FD5BEE /* AvengersApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 49BF158324521AB200FD5BEE /* AvengersApp.xcdatamodeld */; };
@@ -47,6 +51,10 @@
 		49AE3DC024589C790099D447 /* SettingsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRepository.swift; sourceTree = "<group>"; };
 		49AE3DC324589D6F0099D447 /* SettingsRepositoryUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRepositoryUserDefaults.swift; sourceTree = "<group>"; };
 		49AE3DC62458A13A0099D447 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		49AE3DC82458A6210099D447 /* VillainsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VillainsRepository.swift; sourceTree = "<group>"; };
+		49AE3DCA2458A9460099D447 /* villains_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = villains_data.json; sourceTree = "<group>"; };
+		49AE3DCC2458A9BF0099D447 /* VillainsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VillainsViewModel.swift; sourceTree = "<group>"; };
+		49AE3DCE2458AB340099D447 /* VillainsRepositoryCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VillainsRepositoryCoreData.swift; sourceTree = "<group>"; };
 		49BF157724521AB200FD5BEE /* AvengersApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AvengersApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49BF157A24521AB200FD5BEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49BF157C24521AB200FD5BEE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -233,6 +241,7 @@
 			children = (
 				49BF15AC24523F4E00FD5BEE /* VillainsViewController.swift */,
 				49BF15AD24523F4E00FD5BEE /* VillainsViewController.xib */,
+				49AE3DCC2458A9BF0099D447 /* VillainsViewModel.swift */,
 			);
 			path = Villains;
 			sourceTree = "<group>";
@@ -278,6 +287,7 @@
 				49AE3DC224589CFC0099D447 /* UserDefaultsRepos */,
 				49D6581C24574FED000EBF4B /* CoreDataRepos */,
 				49D6581324574858000EBF4B /* AvengersRepository.swift */,
+				49AE3DC82458A6210099D447 /* VillainsRepository.swift */,
 				49AE3DC024589C790099D447 /* SettingsRepository.swift */,
 			);
 			path = Repositories;
@@ -288,6 +298,7 @@
 			children = (
 				49D6581A24574C01000EBF4B /* CoreDataRepository.swift */,
 				49D658162457495D000EBF4B /* AvengersRepositoryCoreData.swift */,
+				49AE3DCE2458AB340099D447 /* VillainsRepositoryCoreData.swift */,
 			);
 			path = CoreDataRepos;
 			sourceTree = "<group>";
@@ -296,6 +307,7 @@
 			isa = PBXGroup;
 			children = (
 				49D6581E24575E1B000EBF4B /* avengers_data.json */,
+				49AE3DCA2458A9460099D447 /* villains_data.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -370,6 +382,7 @@
 				49BF15A724523E0000FD5BEE /* Colors.xcassets in Resources */,
 				49BF159F245221BB00FD5BEE /* AvengersViewController.xib in Resources */,
 				49BF15BF245242AF00FD5BEE /* HeroCell.xib in Resources */,
+				49AE3DCB2458A9460099D447 /* villains_data.json in Resources */,
 				49BF15AF24523F4E00FD5BEE /* VillainsViewController.xib in Resources */,
 				49BF15B62452407C00FD5BEE /* BattlesViewController.xib in Resources */,
 				49D6581F24575E1B000EBF4B /* avengers_data.json in Resources */,
@@ -387,6 +400,7 @@
 				49BF159E245221BB00FD5BEE /* AvengersViewController.swift in Sources */,
 				49BF15BE245242AF00FD5BEE /* HeroCell.swift in Sources */,
 				49BF15C12452430100FD5BEE /* NibLoadableView.swift in Sources */,
+				49AE3DC92458A6210099D447 /* VillainsRepository.swift in Sources */,
 				49BF159A24521F6500FD5BEE /* AppCoordinator.swift in Sources */,
 				49BF158524521AB200FD5BEE /* AvengersApp.xcdatamodeld in Sources */,
 				49BF15A12452224B00FD5BEE /* AvengersCoordinator.swift in Sources */,
@@ -396,8 +410,10 @@
 				49BF15AE24523F4E00FD5BEE /* VillainsViewController.swift in Sources */,
 				49D6581924574A52000EBF4B /* CoreDataDatabase.swift in Sources */,
 				49D6581024573F65000EBF4B /* AvengersViewModel.swift in Sources */,
+				49AE3DCD2458A9BF0099D447 /* VillainsViewModel.swift in Sources */,
 				49AE3DC124589C790099D447 /* SettingsRepository.swift in Sources */,
 				49D6581424574858000EBF4B /* AvengersRepository.swift in Sources */,
+				49AE3DCF2458AB340099D447 /* VillainsRepositoryCoreData.swift in Sources */,
 				49D658172457495D000EBF4B /* AvengersRepositoryCoreData.swift in Sources */,
 				49D6581B24574C01000EBF4B /* CoreDataRepository.swift in Sources */,
 				49AE3DC424589D6F0099D447 /* SettingsRepositoryUserDefaults.swift in Sources */,
