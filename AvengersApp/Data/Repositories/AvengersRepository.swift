@@ -12,6 +12,7 @@ protocol AvengersRepository {
     func fetchAllAvengers() -> [Avenger]
     func createAvenger() -> Avenger?
     func saveAvenger(_ avenger: Avenger)
+    func saveAvengers(_ avengers: [Avenger])
     func deleteAvenger(_ avenger: Avenger)
     func deleteAllAvengers(_ avengers: [Avenger])
 }

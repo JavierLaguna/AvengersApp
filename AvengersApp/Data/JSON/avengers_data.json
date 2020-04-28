@@ -1,0 +1,60 @@
+[{
+	"hero_name": "Capitán América",
+	"hero_image": "img_heroe_america_captain",
+	"hero_power": 4,
+	"hero_biography": "Steve Rogers nació durante la Depresión y creció, convirtiéndose en un joven débil en una familia pobre. Su padre murió cuando él era un niño; su madre, durante la adolescencia de Steve. Horrorizado ante un noticiario que mostraba a los nazis en Europa, Rogers intentó alistarse en el ejército."
+},
+{
+	"hero_name": "Black Panther",
+	"hero_image": "img_heroe_black_panther",
+	"hero_power": 3,
+	"hero_biography": "Pantera Negra es el título ceremonial otorgado al jefe de la tribu Pantera de la avanzada nación africana de Wakanda. Además de gobernar el país, también es el jefe de sus diversas tribus (colectivamente denominadas Wakandas). El traje de Pantera es un símbolo de la oficina (jefe de estado) y se utiliza incluso durante misiones diplomáticas."
+},
+{
+	"hero_name": "Black Widow",
+	"hero_image": "img_heroe_black_widow",
+	"hero_power": 2,
+	"hero_biography": "Natasha nació en Stalingrado (ahora Volgogrado), Rusia. La primera y más conocida Viuda Negra, es una agente rusa entrenada como espía, artista marcial y francotiradora, y equipada con un arsenal de armas de alta tecnología, que incluye un par de armas energéticas montadas en la muñeca y apodada 'Piquete de la Viuda'. No usa vestimenta durante sus primeras apariciones, sino simplemente ropa de noche y un velo. Romanova eventualmente se transforma en estadounidense por razones que incluyen su amor por el arquero convertido en superhéroe, Hawkeye."
+},
+{
+	"hero_name": "Dr Strange",
+	"hero_image": "img_heroe_dr_strange",
+	"hero_power": 4,
+	"hero_biography": "Stephen Strange nació en Filadelfia, Pennsylvania, hijo primogénito de Eugene y Beverly Strange, (después nacerían su hermano Víctor y su hermana Donna). Siendo desde niño muy ambicioso Stephen se convertiría en un prestigioso Neurocirujano en su adultez. Alejado de su familia por su arrogancia e inmerso en su éxito, Stephen afrontaría tragedias que cambiarían su vida para siempre."
+},
+{
+	"hero_name": "Gamora",
+	"hero_image": "img_heroe_gamora",
+	"hero_power": 3,
+	"hero_biography": "Gamora es la última de su especie, los Zen Whoberi, quienes fueron exterminados por los Badoon (en su línea temporal original, su especie fue exterminada por la Iglesia Universal de la Verdad). Thanos encontró a la niña y decidió utilizarla como un arma. Gamora fue criada y entrenada por Thanos para asesinar a Magus, una malvada versión alterna de Adam Warlock. Thanos mostró su poca humanidad en su infancia, pero Gamora fue muy leal al hombre que le prometió la oportunidad de vengar la muerte de su familia."
+},
+{
+	"hero_name": "Hulk",
+	"hero_image": "img_heroe_hulk",
+	"hero_power": 4,
+	"hero_biography": "Después de una exposición accidental a los rayos gamma durante la detonación de una bomba experimental, Banner se transforma físicamente en Hulk cuando está sometido a estrés emocional, a su voluntad o en contra de ella, lo que a menudo lleva a destrozos y conflictos que complican la vida civil de Banner. El nivel de fuerza de Hulk se transmite normalmente de forma proporcional a su nivel de ira. Comúnmente retratado como un salvaje furioso."
+},
+{
+	"hero_name": "Iron Man",
+	"hero_image": "img_heroe_ironman",
+	"hero_power": 4,
+	"hero_biography": "Anthony Edward Stark es el hijo del jefe de Industrias Stark, Howard Stark y su esposa Maria Stark. Un niño genio que ingresa al MIT a la edad de 15 años para estudiar ingeniería mecánica y luego recibe maestrías en ingeniería eléctrica y física. Después de que sus padres mueren en un accidente automovilístico, hereda la compañía de su padre."
+},
+{
+	"hero_name": "Capitana Marvel",
+	"hero_image": "img_heroe_marvel_captain",
+	"hero_power": 5,
+	"hero_biography": "La ex piloto y agente de inteligencia de la Fuerza Aérea, Carol Danvers, persiguió su sueño de explorar el espacio como empleada de la NASA, pero su vida cambió para siempre cuando se transformó accidentalmente en un híbrido humano-Kree con poderes extraordinarios."
+},
+{
+	"hero_name": "Spiderman",
+	"hero_image": "img_heroe_spiderman",
+	"hero_power": 3,
+	"hero_biography": "Durante una visita que el brillante estudiante hacía a una exhibición científica, fue mordido por una araña que había sido expuesta a los experimentos radiactivos que allí se llevaban a cabo.1​Esto provocó que paulatinamente Parker adquiriera poderes sobrehumanos: la velocidad, fuerza y agilidad proporcionales a las de una araña de su tamaño; un 'sentido arácnido' que le avisa de peligros y la habilidad de adherirse y desplazarse por cualquier muro o pared, independientemente de su horizontalidad. Se las ingenia además para construir un mecanismo que le permite lanzar un viscoso producto químico a manera de telaraña."
+},
+{
+	"hero_name": "Thor",
+	"hero_image": "img_heroe_thor",
+	"hero_power": 5,
+	"hero_biography": "El padre de Thor, Odín, decide que su hijo necesita que le enseñe la humildad y, en consecuencia, coloca a Thor (sin recuerdos de la divinidad) en el cuerpo y los recuerdos de un estudiante de medicina humana existente, parcialmente discapacitado, Donald Blake.7​Después de convertirse en médico y de vacaciones en Noruega, Blake presencia la llegada de una partida de exploración alienígena. Blake huye de los extraterrestres a una cueva. Después de descubrir el martillo de Thor, Mjolnir (disfrazado como un bastón) y golpearlo contra una roca, se transforma en el dios del trueno."
+}]

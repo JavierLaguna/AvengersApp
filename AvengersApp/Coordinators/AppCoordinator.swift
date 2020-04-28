@@ -13,7 +13,13 @@ class AppCoordinator: Coordinator {
     let window: UIWindow
     
     // MARK: Repositories Injection
-    let avengersRepository: AvengersRepository = AvengersRepositoryCoreData()
+    lazy var settingsRepository: SettingsRepository = {
+        return SettingsRepositoryUserDefaults()
+    }()
+    
+    lazy var avengersRepository: AvengersRepository = {
+        return AvengersRepositoryCoreData()
+    }()
     
     init(window: UIWindow) {
         self.window = window
@@ -21,7 +27,11 @@ class AppCoordinator: Coordinator {
     
     override func start() {
         configureUI()
-
+        
+        if settingsRepository.isFirstAppLaunch() {
+            loadJsonData()
+        }
+        
         let tabBarCoordinators: [Coordinator] = [
             AvengersCoordinator(repository: avengersRepository),
             BattlesCoordinator(),
@@ -48,5 +58,40 @@ class AppCoordinator: Coordinator {
     // MARK: Private functions
     private func configureUI() {
         UINavigationBar.appearance().tintColor = .orange
+    }
+}
+
+// MARK: Load JSON data
+extension AppCoordinator {
+    
+    // TODO: DO ON OTHER THREAD
+    private func loadJsonData() {
+        do {
+            try loadAvengers()
+            
+            settingsRepository.setFirstAppLaunch(false)
+        } catch {
+            Log.error(error.localizedDescription)
+        }
+    }
+    
+    private func loadAvengers() throws {
+        guard let pathURL = Bundle.main.url(forResource: "avengers_data", withExtension: "json") else {
+            return Log.error("Can not find `avengers_data` resource")
+        }
+        
+        let data = try Data(contentsOf: pathURL)
+        let heroList = try JSONDecoder().decode([Hero].self, from: data)
+        
+        let avengers: [Avenger] = heroList.compactMap {
+            let avenger = avengersRepository.createAvenger()
+            avenger?.name = $0.name
+            avenger?.image = $0.image
+            avenger?.power = Int16($0.power)
+            avenger?.biography = $0.biography
+            return avenger
+        }
+        
+        avengersRepository.saveAvengers(avengers)
     }
 }

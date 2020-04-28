@@ -27,6 +27,10 @@ struct AvengersRepositoryCoreData: CoreDataRepository, AvengersRepository {
         database.persistAllData()
     }
     
+    func saveAvengers(_ avengers: [Avenger]) {
+        database.persistAllData()
+    }
+    
     func deleteAvenger(_ avenger: Avenger) {
         database.delete(data: [avenger])
     }

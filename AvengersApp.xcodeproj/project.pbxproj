@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49AE3DBF245897100099D447 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AE3DBE245897100099D447 /* Hero.swift */; };
+		49AE3DC124589C790099D447 /* SettingsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AE3DC024589C790099D447 /* SettingsRepository.swift */; };
+		49AE3DC424589D6F0099D447 /* SettingsRepositoryUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AE3DC324589D6F0099D447 /* SettingsRepositoryUserDefaults.swift */; };
+		49AE3DC72458A13A0099D447 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AE3DC62458A13A0099D447 /* Log.swift */; };
 		49BF157B24521AB200FD5BEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BF157A24521AB200FD5BEE /* AppDelegate.swift */; };
 		49BF157D24521AB200FD5BEE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BF157C24521AB200FD5BEE /* SceneDelegate.swift */; };
 		49BF158524521AB200FD5BEE /* AvengersApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 49BF158324521AB200FD5BEE /* AvengersApp.xcdatamodeld */; };
@@ -39,6 +43,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		49AE3DBE245897100099D447 /* Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
+		49AE3DC024589C790099D447 /* SettingsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRepository.swift; sourceTree = "<group>"; };
+		49AE3DC324589D6F0099D447 /* SettingsRepositoryUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRepositoryUserDefaults.swift; sourceTree = "<group>"; };
+		49AE3DC62458A13A0099D447 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		49BF157724521AB200FD5BEE /* AvengersApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AvengersApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49BF157A24521AB200FD5BEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49BF157C24521AB200FD5BEE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +91,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		49AE3DC224589CFC0099D447 /* UserDefaultsRepos */ = {
+			isa = PBXGroup;
+			children = (
+				49AE3DC324589D6F0099D447 /* SettingsRepositoryUserDefaults.swift */,
+			);
+			path = UserDefaultsRepos;
+			sourceTree = "<group>";
+		};
+		49AE3DC52458A12B0099D447 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				49AE3DC62458A13A0099D447 /* Log.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		49BF156E24521AB200FD5BEE = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +130,7 @@
 				49BF159224521CFB00FD5BEE /* Resources */,
 				49BF15A22452307F00FD5BEE /* Common */,
 				49BF159324521D1200FD5BEE /* Data */,
+				49D6582024575F8A000EBF4B /* Models */,
 				49BF159624521EEF00FD5BEE /* Coordinators */,
 				49BF159424521E1400FD5BEE /* Scenes */,
 				49BF15B92452426900FD5BEE /* UI */,
@@ -181,6 +206,7 @@
 			children = (
 				49BF15A824523E6100FD5BEE /* Extensions */,
 				49BF15A32452308D00FD5BEE /* Protocols */,
+				49AE3DC52458A12B0099D447 /* Utils */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -249,8 +275,10 @@
 		49D65815245748F8000EBF4B /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				49AE3DC224589CFC0099D447 /* UserDefaultsRepos */,
 				49D6581C24574FED000EBF4B /* CoreDataRepos */,
 				49D6581324574858000EBF4B /* AvengersRepository.swift */,
+				49AE3DC024589C790099D447 /* SettingsRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -270,6 +298,14 @@
 				49D6581E24575E1B000EBF4B /* avengers_data.json */,
 			);
 			path = JSON;
+			sourceTree = "<group>";
+		};
+		49D6582024575F8A000EBF4B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				49AE3DBE245897100099D447 /* Hero.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -355,16 +391,20 @@
 				49BF158524521AB200FD5BEE /* AvengersApp.xcdatamodeld in Sources */,
 				49BF15A12452224B00FD5BEE /* AvengersCoordinator.swift in Sources */,
 				49BF15C32452431900FD5BEE /* ReusableView.swift in Sources */,
+				49AE3DC72458A13A0099D447 /* Log.swift in Sources */,
 				49BF159824521F1400FD5BEE /* Coordinator.swift in Sources */,
 				49BF15AE24523F4E00FD5BEE /* VillainsViewController.swift in Sources */,
 				49D6581924574A52000EBF4B /* CoreDataDatabase.swift in Sources */,
 				49D6581024573F65000EBF4B /* AvengersViewModel.swift in Sources */,
+				49AE3DC124589C790099D447 /* SettingsRepository.swift in Sources */,
 				49D6581424574858000EBF4B /* AvengersRepository.swift in Sources */,
 				49D658172457495D000EBF4B /* AvengersRepositoryCoreData.swift in Sources */,
 				49D6581B24574C01000EBF4B /* CoreDataRepository.swift in Sources */,
+				49AE3DC424589D6F0099D447 /* SettingsRepositoryUserDefaults.swift in Sources */,
 				49BF15B8245240C000FD5BEE /* BattlesCoordinator.swift in Sources */,
 				49D658122457407C000EBF4B /* HeroCellViewModel.swift in Sources */,
 				49BF15B124523F6C00FD5BEE /* VillainsCoordinator.swift in Sources */,
+				49AE3DBF245897100099D447 /* Hero.swift in Sources */,
 				49BF15AA24523E7D00FD5BEE /* UIColor.swift in Sources */,
 				49BF157B24521AB200FD5BEE /* AppDelegate.swift in Sources */,
 				49BF157D24521AB200FD5BEE /* SceneDelegate.swift in Sources */,
