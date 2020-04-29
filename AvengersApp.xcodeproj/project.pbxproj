@@ -10,6 +10,8 @@
 		49A336A02459E14700C4A899 /* HeroDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A3369F2459E14700C4A899 /* HeroDetailViewModel.swift */; };
 		49A336A22459E3CE00C4A899 /* AvengerDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A336A12459E3CE00C4A899 /* AvengerDetailViewModel.swift */; };
 		49A336A42459ED7E00C4A899 /* VillainDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A336A32459ED7E00C4A899 /* VillainDetailViewModel.swift */; };
+		49A336A82459F1BB00C4A899 /* BattleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A336A62459F1BB00C4A899 /* BattleCell.swift */; };
+		49A336A92459F1BB00C4A899 /* BattleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49A336A72459F1BB00C4A899 /* BattleCell.xib */; };
 		49AE3DBF245897100099D447 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AE3DBE245897100099D447 /* Hero.swift */; };
 		49AE3DC124589C790099D447 /* SettingsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AE3DC024589C790099D447 /* SettingsRepository.swift */; };
 		49AE3DC424589D6F0099D447 /* SettingsRepositoryUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AE3DC324589D6F0099D447 /* SettingsRepositoryUserDefaults.swift */; };
@@ -55,6 +57,8 @@
 		49A3369F2459E14700C4A899 /* HeroDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailViewModel.swift; sourceTree = "<group>"; };
 		49A336A12459E3CE00C4A899 /* AvengerDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvengerDetailViewModel.swift; sourceTree = "<group>"; };
 		49A336A32459ED7E00C4A899 /* VillainDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VillainDetailViewModel.swift; sourceTree = "<group>"; };
+		49A336A62459F1BB00C4A899 /* BattleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleCell.swift; sourceTree = "<group>"; };
+		49A336A72459F1BB00C4A899 /* BattleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BattleCell.xib; sourceTree = "<group>"; };
 		49AE3DBE245897100099D447 /* Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
 		49AE3DC024589C790099D447 /* SettingsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRepository.swift; sourceTree = "<group>"; };
 		49AE3DC324589D6F0099D447 /* SettingsRepositoryUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRepositoryUserDefaults.swift; sourceTree = "<group>"; };
@@ -109,6 +113,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		49A336A52459F18600C4A899 /* Battle */ = {
+			isa = PBXGroup;
+			children = (
+				49A336A62459F1BB00C4A899 /* BattleCell.swift */,
+				49A336A72459F1BB00C4A899 /* BattleCell.xib */,
+			);
+			path = Battle;
+			sourceTree = "<group>";
+		};
 		49AE3DC224589CFC0099D447 /* UserDefaultsRepos */ = {
 			isa = PBXGroup;
 			children = (
@@ -289,6 +302,7 @@
 		49BF15BA2452427600FD5BEE /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				49A336A52459F18600C4A899 /* Battle */,
 				49BF15BB2452428000FD5BEE /* Hero */,
 			);
 			path = Cell;
@@ -410,6 +424,7 @@
 				49BF15B62452407C00FD5BEE /* BattlesViewController.xib in Resources */,
 				49AE3DD42458AEDD0099D447 /* HeroDetailViewController.xib in Resources */,
 				49D6581F24575E1B000EBF4B /* avengers_data.json in Resources */,
+				49A336A92459F1BB00C4A899 /* BattleCell.xib in Resources */,
 				49BF158724521AB500FD5BEE /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -431,6 +446,7 @@
 				49BF15A12452224B00FD5BEE /* AvengersCoordinator.swift in Sources */,
 				49AE3DD32458AEDD0099D447 /* HeroDetailViewController.swift in Sources */,
 				49BF15C32452431900FD5BEE /* ReusableView.swift in Sources */,
+				49A336A82459F1BB00C4A899 /* BattleCell.swift in Sources */,
 				49A336A02459E14700C4A899 /* HeroDetailViewModel.swift in Sources */,
 				49A336A22459E3CE00C4A899 /* AvengerDetailViewModel.swift in Sources */,
 				49AE3DC72458A13A0099D447 /* Log.swift in Sources */,

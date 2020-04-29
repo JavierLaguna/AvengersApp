@@ -46,6 +46,7 @@ class AvengersViewController: UIViewController {
     private func configureTable() {
         tableView.register(UINib(nibName: HeroCell.nibName, bundle: nil), forCellReuseIdentifier: HeroCell.defaultReuseIdentifier)
         
+        tableView.separatorColor = .clear
         tableView.tableFooterView = UIView()
         
         tableView.dataSource = self

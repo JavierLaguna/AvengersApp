@@ -3,12 +3,15 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BattlesViewController" customModule="AvengersApp" customModuleProvider="target">
             <connections>
+                <outlet property="addButtonImage" destination="0Sg-jm-hgY" id="Dvu-67-6xL"/>
+                <outlet property="tableView" destination="ZBp-gZ-oXI" id="Bm0-OK-Nhs"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,20 +20,36 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Battles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="baE-Ep-Q3A">
-                    <rect key="frame" x="180" y="437.5" width="54" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZBp-gZ-oXI">
+                    <rect key="frame" x="0.0" y="44" width="414" height="698"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                </tableView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="0Sg-jm-hgY">
+                    <rect key="frame" x="167" y="762.5" width="80" height="79"/>
+                    <color key="tintColor" name="BlueMain"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="O2z-ta-IDP"/>
+                        <constraint firstAttribute="width" constant="80" id="i8J-4s-Vh8"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
-                <constraint firstItem="baE-Ep-Q3A" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ZlG-nk-2Sc"/>
-                <constraint firstItem="baE-Ep-Q3A" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="k5A-FH-Xqj"/>
+                <constraint firstItem="ZBp-gZ-oXI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="8RA-we-t8t"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="0Sg-jm-hgY" secondAttribute="bottom" constant="20" id="8Xk-mS-ttB"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ZBp-gZ-oXI" secondAttribute="trailing" id="Keh-Ll-ets"/>
+                <constraint firstItem="0Sg-jm-hgY" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="iwZ-t7-WTZ"/>
+                <constraint firstItem="0Sg-jm-hgY" firstAttribute="top" secondItem="ZBp-gZ-oXI" secondAttribute="bottom" constant="20" id="l1i-gf-SiZ"/>
+                <constraint firstItem="ZBp-gZ-oXI" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="ssR-EO-En7"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="132" y="153"/>
+            <point key="canvasLocation" x="131.8840579710145" y="152.67857142857142"/>
         </view>
     </objects>
+    <resources>
+        <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
+        <namedColor name="BlueMain">
+            <color red="0.14509803921568629" green="0.40000000000000002" blue="0.59215686274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>
