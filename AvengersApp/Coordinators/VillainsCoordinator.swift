@@ -26,9 +26,21 @@ class VillainsCoordinator: Coordinator {
         let villainsViewController = VillainsViewController(viewModel: villainsViewModel)
         
         villainsViewModel.viewDelegate = villainsViewController
+        villainsViewModel.coordinatorDelegate = self
         
         presenter.pushViewController(villainsViewController, animated: false)
     }
     
     override func finish() {}
+}
+
+// MARK: VillainsCoordinatorDelegate
+extension VillainsCoordinator: VillainsCoordinatorDelegate {
+    
+    func didSelect(villain: Villain) {
+        
+        let detailViewModel = VillainDetailViewModel(villain: villain, repository: repository)
+        let detailVC = HeroDetailViewController(viewModel: detailViewModel)
+        presenter.pushViewController(detailVC, animated: true)
+    }
 }

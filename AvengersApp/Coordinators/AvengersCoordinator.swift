@@ -35,11 +35,12 @@ class AvengersCoordinator: Coordinator {
 }
 
 // MARK: AvengersCoordinatorDelegate
-extension AvengersCoordinator: AvengersCoordinatorDelegate{
+extension AvengersCoordinator: AvengersCoordinatorDelegate {
+    
     func didSelect(avenger: Avenger) {
         
-        let detailVC = HeroDetailViewController()
+        let detailViewModel = AvengerDetailViewModel(avenger: avenger, repository: repository)
+        let detailVC = HeroDetailViewController(viewModel: detailViewModel)
         presenter.pushViewController(detailVC, animated: true)
     }
-    
 }
