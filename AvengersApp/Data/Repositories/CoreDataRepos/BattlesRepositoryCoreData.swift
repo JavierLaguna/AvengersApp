@@ -19,6 +19,11 @@ struct BattlesRepositoryCoreData: CoreDataRepository, BattlesRepository {
         return database.fetchAllData(for: entityName) as? [Battle] ?? []
     }
     
+    func fetchLastBattle() -> Battle? {
+        // TODO
+        return nil
+    }
+    
     func createBattle() -> Battle? {
         return database.createData(for: entityName) as? Battle
     }

@@ -13,6 +13,7 @@
                 <outlet property="avengerBackgroundView" destination="XJK-17-A5z" id="e16-kD-4kB"/>
                 <outlet property="avengerButtonImage" destination="IxE-CD-cdX" id="Uge-jf-lxp"/>
                 <outlet property="avengerImage" destination="YKB-qa-FeJ" id="bHx-Za-wzU"/>
+                <outlet property="avengerWinImage" destination="eC1-Dx-zBB" id="BSM-lY-Dhd"/>
                 <outlet property="battleIconImage" destination="FQs-sb-oHh" id="WYu-z7-y8N"/>
                 <outlet property="battleTitleLabel" destination="RHG-vv-20T" id="m4L-is-6vQ"/>
                 <outlet property="okButton" destination="WXa-pe-bF3" id="QXD-zp-Ba9"/>
@@ -20,6 +21,7 @@
                 <outlet property="villainBackgroundView" destination="c5E-Ov-g33" id="b8n-kF-HGp"/>
                 <outlet property="villainButtonImage" destination="WyT-Lw-iAb" id="ZN0-vx-MtL"/>
                 <outlet property="villainImage" destination="Qlq-g4-VkL" id="NMU-4z-V9C"/>
+                <outlet property="villainWinImage" destination="S6W-O2-Onl" id="Uf9-t2-o3F"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -36,8 +38,8 @@
                             <color key="textColor" name="BlueMain"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-4" translatesAutoresizingMaskIntoConstraints="NO" id="GjS-fG-Mig">
-                            <rect key="frame" x="0.0" y="202.5" width="366" height="368"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-10" translatesAutoresizingMaskIntoConstraints="NO" id="GjS-fG-Mig">
+                            <rect key="frame" x="0.0" y="208.5" width="366" height="356"/>
                             <subviews>
                                 <view contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="ESh-k8-xKc" userLabel="Avenger View">
                                     <rect key="frame" x="0.0" y="0.0" width="366" height="138"/>
@@ -48,6 +50,14 @@
                                         </view>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_heroe_ironman" translatesAutoresizingMaskIntoConstraints="NO" id="YKB-qa-FeJ">
                                             <rect key="frame" x="71.5" y="2" width="223.5" height="134"/>
+                                        </imageView>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rosette" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="eC1-Dx-zBB">
+                                            <rect key="frame" x="255" y="-19" width="60" height="61"/>
+                                            <color key="tintColor" name="Gold"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="60" id="MAH-fd-Oe2"/>
+                                                <constraint firstAttribute="height" constant="60" id="kV5-od-TL0"/>
+                                            </constraints>
                                         </imageView>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="IxE-CD-cdX">
                                             <rect key="frame" x="143" y="29.5" width="80" height="79"/>
@@ -64,6 +74,8 @@
                                         <constraint firstItem="XJK-17-A5z" firstAttribute="leading" secondItem="YKB-qa-FeJ" secondAttribute="leading" constant="-2" id="BSH-G8-iIY"/>
                                         <constraint firstItem="XJK-17-A5z" firstAttribute="trailing" secondItem="YKB-qa-FeJ" secondAttribute="trailing" constant="2" id="KHb-Rn-JXL"/>
                                         <constraint firstItem="IxE-CD-cdX" firstAttribute="centerX" secondItem="ESh-k8-xKc" secondAttribute="centerX" id="bEP-bb-f74"/>
+                                        <constraint firstItem="eC1-Dx-zBB" firstAttribute="trailing" secondItem="YKB-qa-FeJ" secondAttribute="trailing" constant="20" id="gIv-cU-pqp"/>
+                                        <constraint firstItem="eC1-Dx-zBB" firstAttribute="top" secondItem="YKB-qa-FeJ" secondAttribute="top" constant="-20" id="iu0-Wa-zyj"/>
                                         <constraint firstItem="YKB-qa-FeJ" firstAttribute="centerX" secondItem="ESh-k8-xKc" secondAttribute="centerX" id="lYc-Rm-gf0"/>
                                         <constraint firstItem="IxE-CD-cdX" firstAttribute="centerY" secondItem="ESh-k8-xKc" secondAttribute="centerY" id="lfS-Pw-07P"/>
                                         <constraint firstItem="XJK-17-A5z" firstAttribute="bottom" secondItem="YKB-qa-FeJ" secondAttribute="bottom" constant="2" id="tUZ-k3-0l7"/>
@@ -72,13 +84,13 @@
                                     </constraints>
                                 </view>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" image="ic_battle_round" translatesAutoresizingMaskIntoConstraints="NO" id="FQs-sb-oHh">
-                                    <rect key="frame" x="0.0" y="134" width="366" height="100"/>
+                                    <rect key="frame" x="0.0" y="128" width="366" height="100"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="100" id="XL2-FJ-VFN"/>
                                     </constraints>
                                 </imageView>
                                 <view contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="qz7-6r-QoM" userLabel="Villain View">
-                                    <rect key="frame" x="0.0" y="230" width="366" height="138"/>
+                                    <rect key="frame" x="0.0" y="218" width="366" height="138"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c5E-Ov-g33" userLabel="background">
                                             <rect key="frame" x="69.5" y="2" width="225.5" height="132"/>
@@ -86,6 +98,14 @@
                                         </view>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_villain_thanos" translatesAutoresizingMaskIntoConstraints="NO" id="Qlq-g4-VkL">
                                             <rect key="frame" x="71.5" y="2" width="223.5" height="134"/>
+                                        </imageView>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rosette" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="S6W-O2-Onl">
+                                            <rect key="frame" x="255" y="-19" width="60" height="61"/>
+                                            <color key="tintColor" name="Gold"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="60" id="eG6-5h-OqU"/>
+                                                <constraint firstAttribute="height" constant="60" id="r65-C4-O2W"/>
+                                            </constraints>
                                         </imageView>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="WyT-Lw-iAb">
                                             <rect key="frame" x="143" y="29.5" width="80" height="79"/>
@@ -99,6 +119,8 @@
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="c5E-Ov-g33" firstAttribute="bottom" secondItem="Qlq-g4-VkL" secondAttribute="bottom" constant="-2" id="Hpw-Dk-Jgj"/>
+                                        <constraint firstItem="S6W-O2-Onl" firstAttribute="top" secondItem="Qlq-g4-VkL" secondAttribute="top" constant="-20" id="Jpz-95-x3R"/>
+                                        <constraint firstItem="S6W-O2-Onl" firstAttribute="trailing" secondItem="Qlq-g4-VkL" secondAttribute="trailing" constant="20" id="M4h-Xk-UrY"/>
                                         <constraint firstAttribute="bottom" secondItem="Qlq-g4-VkL" secondAttribute="bottom" constant="2" id="PL9-v0-NCZ"/>
                                         <constraint firstItem="WyT-Lw-iAb" firstAttribute="centerX" secondItem="qz7-6r-QoM" secondAttribute="centerX" id="Q4r-Ss-H4N"/>
                                         <constraint firstItem="Qlq-g4-VkL" firstAttribute="centerX" secondItem="qz7-6r-QoM" secondAttribute="centerX" id="Z3I-8w-18T"/>
@@ -160,8 +182,12 @@
         <image name="img_heroe_ironman" width="223.33332824707031" height="138"/>
         <image name="img_villain_thanos" width="223.33332824707031" height="138"/>
         <image name="plus.circle" catalog="system" width="128" height="121"/>
+        <image name="rosette" catalog="system" width="100" height="128"/>
         <namedColor name="BlueMain">
             <color red="0.14509803921568629" green="0.40000000000000002" blue="0.59215686274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Gold">
+            <color red="0.83137254901960789" green="0.68627450980392157" blue="0.21568627450980393" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="RedMain">
             <color red="0.68627450980392157" green="0.12156862745098039" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

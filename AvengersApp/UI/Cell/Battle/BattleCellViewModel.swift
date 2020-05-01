@@ -16,6 +16,7 @@ struct BattleCellViewModel {
     let battleTitle: String
     let avengerImage: UIImage?
     let villainImage: UIImage?
+    let battleWinner: BattleResult?
     
     init(_ battle: Battle) {
         self.battle = battle
@@ -23,5 +24,6 @@ struct BattleCellViewModel {
         self.battleTitle = "Batalla \(battle.number)"
         self.avengerImage = UIImage(imageLiteralResourceName: battle.avenger?.image ?? "")
         self.villainImage = UIImage(imageLiteralResourceName: battle.villain?.image ?? "")
+        self.battleWinner = BattleResult(rawValue: Int(battle.winner))
     }
 }

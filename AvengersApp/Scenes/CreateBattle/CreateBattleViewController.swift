@@ -14,18 +14,19 @@ class CreateBattleViewController: UIViewController {
     @IBOutlet private weak var battleTitleLabel: UILabel!
     @IBOutlet private weak var avengerBackgroundView: UIView!
     @IBOutlet private weak var avengerImage: UIImageView!
+    @IBOutlet private weak var avengerWinImage: UIImageView!
     @IBOutlet private weak var avengerButtonImage: UIImageView!
     @IBOutlet private weak var battleIconImage: UIImageView!
     @IBOutlet private weak var villainBackgroundView: UIView!
     @IBOutlet private weak var villainImage: UIImageView!
+    @IBOutlet private weak var villainWinImage: UIImageView!
     @IBOutlet private weak var villainButtonImage: UIImageView!
     @IBOutlet private weak var okButton: UIButton!
     
     // MARK: Constants
     private let unselectedAlpha: CGFloat = 0.3
     private let selectedAlpha: CGFloat = 1
-    let viewModel: CreateBattleViewModel
-    
+    private let viewModel: CreateBattleViewModel
     
     // MARK: Lifecycle
     init(viewModel: CreateBattleViewModel) {
@@ -46,13 +47,16 @@ class CreateBattleViewController: UIViewController {
     
     // MARK: Private Functions
     private func configureUI() {
+        avengerWinImage.isHidden = true
+        villainWinImage.isHidden = true
+        
         avengerBackgroundView.layer.borderColor = UIColor.blueMain.cgColor
         avengerBackgroundView.layer.borderWidth = 2
         avengerBackgroundView.layer.cornerRadius = 10
         
         avengerImage.alpha = unselectedAlpha
         
-        battleIconImage.bringSubviewToFront(self.view) // TODO
+        battleIconImage.layer.zPosition = villainImage.layer.zPosition + 1
         
         villainBackgroundView.layer.borderColor = UIColor.redMain.cgColor
         villainBackgroundView.layer.borderWidth = 2
@@ -83,7 +87,8 @@ class CreateBattleViewController: UIViewController {
     
     // MARK: IBActions
     @IBAction private func onTapOkButton(_ sender: Any) {
-        print("OK - TODO")
+        viewModel.startBattle()
+        okButton.isHidden = true
     }
 }
 
@@ -108,5 +113,33 @@ extension CreateBattleViewController: CreateBattleViewDelegate {
         villainImage.image = UIImage(imageLiteralResourceName: villainImg)
         villainImage.alpha = selectedAlpha
         villainButtonImage.isHidden = true
+    }
+    
+    func errorCreatingBattle(_ errorMsg: String) {
+        showAlert(errorMsg) { [weak self] _ in
+            self?.okButton.isHidden = false
+        }
+    }
+    
+    func battleFinish(_ battle: Battle, with result: BattleResult) {
+        UIView.animate(withDuration: 0.8, animations: { [weak self] in
+            guard let strongSelf = self else { return }
+            
+            strongSelf.battleIconImage.transform = CGAffineTransform(scaleX: 1.8, y: 1.8)
+        }){ _ in
+            UIView.animate(withDuration: 0.5, animations: { [weak self] in
+                guard let strongSelf = self else { return }
+                
+                strongSelf.battleIconImage.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+                switch result {
+                case .avengerWins:
+                    strongSelf.avengerWinImage.isHidden = false
+                    strongSelf.villainImage.alpha = strongSelf.unselectedAlpha
+                case .villainWins:
+                    strongSelf.villainWinImage.isHidden = false
+                    strongSelf.avengerImage.alpha = strongSelf.unselectedAlpha
+                }
+            })
+        }
     }
 }

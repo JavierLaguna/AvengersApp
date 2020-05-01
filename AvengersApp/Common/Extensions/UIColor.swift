@@ -11,4 +11,5 @@ import UIKit
 extension UIColor {
     static let blueMain = UIColor(named: "BlueMain") ?? UIColor.blue
     static let redMain = UIColor(named: "RedMain") ?? UIColor.red
+    static let gold = UIColor(named: "Gold") ?? UIColor.yellow
 }

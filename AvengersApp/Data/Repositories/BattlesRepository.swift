@@ -10,6 +10,7 @@ import Foundation
 
 protocol BattlesRepository {
     func fetchAllBattles() -> [Battle]
+    func fetchLastBattle() -> Battle?
     func createBattle() -> Battle?
     func saveBattle(_ battle: Battle)
     func saveBattles(_ battles: [Battle])

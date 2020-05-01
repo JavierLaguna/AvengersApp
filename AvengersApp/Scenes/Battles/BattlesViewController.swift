@@ -30,6 +30,8 @@ class BattlesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewModel.viewWasLoaded()
+        
         configureUI()
         configureTable()
         addGestures()

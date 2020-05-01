@@ -38,6 +38,14 @@
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_heroe_ironman" translatesAutoresizingMaskIntoConstraints="NO" id="f6j-TU-wvd">
                                                 <rect key="frame" x="0.0" y="0.0" width="471.5" height="298"/>
                                             </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rosette" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="WVd-un-cSN">
+                                                <rect key="frame" x="-16" y="-5" width="40" height="41"/>
+                                                <color key="tintColor" name="Gold"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="40" id="dVJ-Ri-Fmj"/>
+                                                    <constraint firstAttribute="height" constant="40" id="zTj-IA-d8c"/>
+                                                </constraints>
+                                            </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uRI-ce-xwM">
                                                 <rect key="frame" x="94.5" y="304" width="282.5" height="4"/>
                                                 <color key="backgroundColor" name="BlueMain"/>
@@ -53,9 +61,11 @@
                                             <constraint firstItem="uRI-ce-xwM" firstAttribute="width" secondItem="f6j-TU-wvd" secondAttribute="width" multiplier="0.6" id="Dng-PB-FB6"/>
                                             <constraint firstItem="f6j-TU-wvd" firstAttribute="centerX" secondItem="DtT-yY-2Ac" secondAttribute="centerX" id="EoS-h0-T2b"/>
                                             <constraint firstItem="f6j-TU-wvd" firstAttribute="top" secondItem="DtT-yY-2Ac" secondAttribute="top" id="Fr0-Bc-fa1"/>
+                                            <constraint firstItem="WVd-un-cSN" firstAttribute="leading" secondItem="f6j-TU-wvd" secondAttribute="leading" constant="-16" id="Mpn-d1-33z"/>
                                             <constraint firstItem="f6j-TU-wvd" firstAttribute="leading" secondItem="DtT-yY-2Ac" secondAttribute="leading" id="WSh-Kw-kdE"/>
                                             <constraint firstItem="uRI-ce-xwM" firstAttribute="centerX" secondItem="DtT-yY-2Ac" secondAttribute="centerX" id="gqR-CE-Pgv"/>
                                             <constraint firstAttribute="trailing" secondItem="f6j-TU-wvd" secondAttribute="trailing" id="iwO-yV-hlP"/>
+                                            <constraint firstItem="WVd-un-cSN" firstAttribute="top" secondItem="f6j-TU-wvd" secondAttribute="top" constant="-4" id="xeu-q2-ZOR"/>
                                         </constraints>
                                     </view>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="ic_battle_round" translatesAutoresizingMaskIntoConstraints="NO" id="jdZ-Cc-7fa">
@@ -69,6 +79,14 @@
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_villain_thanos" translatesAutoresizingMaskIntoConstraints="NO" id="gix-tt-wpX">
                                                 <rect key="frame" x="0.0" y="0.0" width="471.5" height="298"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rosette" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Sys-LB-mPW">
+                                                <rect key="frame" x="447.5" y="-5" width="40" height="41"/>
+                                                <color key="tintColor" name="Gold"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="40" id="dMA-Zd-t5v"/>
+                                                    <constraint firstAttribute="height" constant="40" id="vLi-BW-099"/>
+                                                </constraints>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NIt-J2-RQR">
                                                 <rect key="frame" x="94.5" y="304" width="282.5" height="4"/>
@@ -85,9 +103,11 @@
                                             <constraint firstItem="NIt-J2-RQR" firstAttribute="width" secondItem="gix-tt-wpX" secondAttribute="width" multiplier="0.6" id="NQl-Ul-bQ7"/>
                                             <constraint firstAttribute="bottom" secondItem="NIt-J2-RQR" secondAttribute="bottom" id="U9s-zb-wwI"/>
                                             <constraint firstItem="gix-tt-wpX" firstAttribute="leading" secondItem="kJG-kW-1ej" secondAttribute="leading" id="Yfe-iq-YT6"/>
+                                            <constraint firstItem="Sys-LB-mPW" firstAttribute="top" secondItem="gix-tt-wpX" secondAttribute="top" constant="-4" id="ea6-Sv-nxv"/>
                                             <constraint firstItem="gix-tt-wpX" firstAttribute="centerX" secondItem="kJG-kW-1ej" secondAttribute="centerX" id="jar-5V-NkK"/>
                                             <constraint firstAttribute="trailing" secondItem="gix-tt-wpX" secondAttribute="trailing" id="m7Q-JR-mht"/>
                                             <constraint firstItem="NIt-J2-RQR" firstAttribute="top" secondItem="gix-tt-wpX" secondAttribute="bottom" constant="6" id="mST-tV-ZIQ"/>
+                                            <constraint firstItem="Sys-LB-mPW" firstAttribute="trailing" secondItem="gix-tt-wpX" secondAttribute="trailing" constant="16" id="vsi-6h-dpc"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -109,9 +129,11 @@
             <connections>
                 <outlet property="avengerBorderView" destination="uRI-ce-xwM" id="7k6-D9-z7e"/>
                 <outlet property="avengerImage" destination="f6j-TU-wvd" id="hMa-jm-rAe"/>
+                <outlet property="avengerWinImage" destination="WVd-un-cSN" id="6p5-Vd-UyE"/>
                 <outlet property="battleLabel" destination="pny-CI-Cjb" id="zpI-Ik-aAQ"/>
                 <outlet property="villainBorderView" destination="NIt-J2-RQR" id="6Et-cC-4vv"/>
                 <outlet property="villainImage" destination="gix-tt-wpX" id="JBB-v8-6xF"/>
+                <outlet property="villainWinImage" destination="Sys-LB-mPW" id="aL5-xq-aea"/>
             </connections>
             <point key="canvasLocation" x="-21.014492753623191" y="-26.785714285714285"/>
         </tableViewCell>
@@ -120,8 +142,12 @@
         <image name="ic_battle_round" width="512" height="512"/>
         <image name="img_heroe_ironman" width="223.33332824707031" height="138"/>
         <image name="img_villain_thanos" width="223.33332824707031" height="138"/>
+        <image name="rosette" catalog="system" width="100" height="128"/>
         <namedColor name="BlueMain">
             <color red="0.14509803921568629" green="0.40000000000000002" blue="0.59215686274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Gold">
+            <color red="0.83137254901960789" green="0.68627450980392157" blue="0.21568627450980393" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="RedMain">
             <color red="0.68627450980392157" green="0.12156862745098039" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
