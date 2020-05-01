@@ -17,6 +17,15 @@ class BattleCell: UITableViewCell, NibLoadableView, ReusableView {
     @IBOutlet private weak var villainImage: UIImageView!
     @IBOutlet private weak var villainBorderView: UIView!
     
+    // MARK: Variables
+    var viewModel: BattleCellViewModel? {
+        didSet {
+            guard let viewModel = viewModel else { return }
+            
+            // TODO
+        }
+    }
+    
     // MARK: Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()

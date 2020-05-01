@@ -14,12 +14,25 @@ class BattlesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addButtonImage: UIImageView!
     
+    // MARK: Constants
+    let viewModel: BattlesViewModel
+    
     // MARK: Lifecycle
+    init(viewModel: BattlesViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureUI()
         configureTable()
+        addGestures()
     }
     
     // MARK: Private functions
@@ -39,6 +52,15 @@ class BattlesViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
     }
+    
+    private func addGestures() {
+        addButtonImage.isUserInteractionEnabled = true
+        addButtonImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(addBattle)))
+    }
+    
+    @objc private func addBattle() {
+        viewModel.addBattle()
+    }
 }
 
 // MARK: UITableViewDataSource, UITableViewDelegate
@@ -49,14 +71,28 @@ extension BattlesViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: BattleCell.defaultReuseIdentifier, for: indexPath) as? BattleCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: BattleCell.defaultReuseIdentifier, for: indexPath) as? BattleCell,
+            let cellViewModel = viewModel.viewModelCell(at: indexPath) else {
                 return UITableViewCell()
         }
         
+        cell.viewModel = cellViewModel
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
+    }
+}
+
+// MARK: BattlesViewDelegate
+extension BattlesViewController: BattlesViewDelegate {
+    
+    func battlesFetched() {
+        tableView.reloadData()
+    }
+    
+    func errorFetchingBattles() {
+        // TODO
     }
 }

@@ -21,6 +21,10 @@ class AppCoordinator: Coordinator {
         return AvengersRepositoryCoreData()
     }()
     
+    lazy var battlesRepository: BattlesRepository = {
+        return BattlesRepositoryCoreData()
+    }()
+    
     lazy var villainsRepository: VillainsRepository = {
         return VillainsRepositoryCoreData()
     }()
@@ -38,7 +42,7 @@ class AppCoordinator: Coordinator {
         
         let tabBarCoordinators: [Coordinator] = [
             AvengersCoordinator(repository: avengersRepository),
-            BattlesCoordinator(),
+            BattlesCoordinator(repository: battlesRepository),
             VillainsCoordinator(repository: villainsRepository)
         ]
         
