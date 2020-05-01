@@ -10,11 +10,15 @@ import UIKit
 
 class BattlesCoordinator: Coordinator {
     
-    let repository: BattlesRepository
-    
-    init(repository: BattlesRepository) {
+    private let repository: BattlesRepository
+    private let avengersRepository: AvengersRepository
+    private let villainsRepository: VillainsRepository
+
+    init(repository: BattlesRepository, avengersRepository: AvengersRepository, villainsRepository: VillainsRepository) {
         self.repository = repository
-        
+        self.avengersRepository = avengersRepository
+        self.villainsRepository = villainsRepository
+
         super.init()
     }
     
@@ -38,8 +42,14 @@ class BattlesCoordinator: Coordinator {
 extension BattlesCoordinator: BattlesCoordinatorDelegate {
     
     func addBattleButtonTapped() {
-        let createBattleVC = CreateBattleViewController()
-        presenter.pushViewController(createBattleVC, animated: true)
+        let createBattleCoordinator = CreateBattleCoordinator(
+            repository: repository,
+            avengersRepository: avengersRepository,
+            villainsRepository: villainsRepository,
+            presenter: presenter)
+        
+        self.addChildCoordinator(createBattleCoordinator)
+        createBattleCoordinator.start()
     }
     
     func didSelect(battle: Battle) {

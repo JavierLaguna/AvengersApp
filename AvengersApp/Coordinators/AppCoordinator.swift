@@ -10,22 +10,22 @@ import UIKit
 
 class AppCoordinator: Coordinator {
     
-    let window: UIWindow
+    private let window: UIWindow
     
     // MARK: Repositories Injection
-    lazy var settingsRepository: SettingsRepository = {
+    lazy private var settingsRepository: SettingsRepository = {
         return SettingsRepositoryUserDefaults()
     }()
     
-    lazy var avengersRepository: AvengersRepository = {
+    lazy private var avengersRepository: AvengersRepository = {
         return AvengersRepositoryCoreData()
     }()
     
-    lazy var battlesRepository: BattlesRepository = {
+    lazy private var battlesRepository: BattlesRepository = {
         return BattlesRepositoryCoreData()
     }()
     
-    lazy var villainsRepository: VillainsRepository = {
+    lazy private var villainsRepository: VillainsRepository = {
         return VillainsRepositoryCoreData()
     }()
     
@@ -42,7 +42,9 @@ class AppCoordinator: Coordinator {
         
         let tabBarCoordinators: [Coordinator] = [
             AvengersCoordinator(repository: avengersRepository),
-            BattlesCoordinator(repository: battlesRepository),
+            BattlesCoordinator(repository: battlesRepository,
+                               avengersRepository: avengersRepository,
+                               villainsRepository: villainsRepository),
             VillainsCoordinator(repository: villainsRepository)
         ]
         
@@ -105,22 +107,22 @@ extension AppCoordinator {
     }
     
     private func loadVillains() throws {
-           guard let pathURL = Bundle.main.url(forResource: "villains_data", withExtension: "json") else {
-               return Log.error("Can not find `villains_data` resource")
-           }
-           
-           let data = try Data(contentsOf: pathURL)
-           let heroList = try JSONDecoder().decode([Hero].self, from: data)
-           
-           let villains: [Villain] = heroList.compactMap {
-               let villain = villainsRepository.createVillain()
-               villain?.name = $0.name
-               villain?.image = $0.image
-               villain?.power = Int16($0.power)
-               villain?.biography = $0.biography
-               return villain
-           }
-           
-           villainsRepository.saveVillains(villains)
-       }
+        guard let pathURL = Bundle.main.url(forResource: "villains_data", withExtension: "json") else {
+            return Log.error("Can not find `villains_data` resource")
+        }
+        
+        let data = try Data(contentsOf: pathURL)
+        let heroList = try JSONDecoder().decode([Hero].self, from: data)
+        
+        let villains: [Villain] = heroList.compactMap {
+            let villain = villainsRepository.createVillain()
+            villain?.name = $0.name
+            villain?.image = $0.image
+            villain?.power = Int16($0.power)
+            villain?.biography = $0.biography
+            return villain
+        }
+        
+        villainsRepository.saveVillains(villains)
+    }
 }

@@ -24,8 +24,19 @@ class CreateBattleViewController: UIViewController {
     // MARK: Constants
     private let unselectedAlpha: CGFloat = 0.3
     private let selectedAlpha: CGFloat = 1
+    let viewModel: CreateBattleViewModel
+    
     
     // MARK: Lifecycle
+    init(viewModel: CreateBattleViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -63,15 +74,39 @@ class CreateBattleViewController: UIViewController {
     }
     
     @objc private func addAvenger() {
-        print("AVENGER - TODO")
+        viewModel.addAvenger()
     }
     
     @objc private func addVillain() {
-        print("VILLAIN - TODO")
+        viewModel.addVillain()
     }
     
     // MARK: IBActions
     @IBAction private func onTapOkButton(_ sender: Any) {
         print("OK - TODO")
+    }
+}
+
+// MARK: CreateBattleViewDelegate
+extension CreateBattleViewController: CreateBattleViewDelegate {
+    
+    func avengerDidAdded(_ avenger: Avenger) {
+        guard let avengerImg = avenger.image else {
+            return Log.error("Fail loading avenger image")
+        }
+        
+        avengerImage.image = UIImage(imageLiteralResourceName: avengerImg)
+        avengerImage.alpha = selectedAlpha
+        avengerButtonImage.isHidden = true
+    }
+    
+    func villainDidAdded(_ villain: Villain) {
+        guard let villainImg = villain.image else {
+            return Log.error("Fail loading villain image")
+        }
+        
+        villainImage.image = UIImage(imageLiteralResourceName: villainImg)
+        villainImage.alpha = selectedAlpha
+        villainButtonImage.isHidden = true
     }
 }
