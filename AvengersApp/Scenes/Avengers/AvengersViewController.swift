@@ -84,6 +84,6 @@ extension AvengersViewController: AvengersViewDelegate {
     }
     
     func errorFetchingAvengers() {
-        // TODO
+        showAlert("Ha sucedido algo insesperado! Prueba de nuevo en unos segundos.")
     }
 }

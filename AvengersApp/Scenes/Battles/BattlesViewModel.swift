@@ -53,12 +53,23 @@ class BattlesViewModel {
     
     func viewModelCell(at indexPath: IndexPath) -> BattleCellViewModel? {
         guard indexPath.row < battleCellViewModels.count else { return nil }
+        
         return battleCellViewModels[indexPath.row]
     }
     
     func didSelectRow(at indexPath: IndexPath) {
-        guard indexPath.row < battleCellViewModels.count else { return }
+        guard indexPath.row < battles.count else { return }
+        
         coordinatorDelegate?.didSelect(battle: battles[indexPath.row])
+    }
+    
+    func deleteRow(at indexPath: IndexPath) {
+        guard indexPath.row < battles.count else { return }
+        
+        let battle = battles[indexPath.row]
+        repository.deleteBattle(battle)
+        
+        refreshData()
     }
     
     func addBattle() {

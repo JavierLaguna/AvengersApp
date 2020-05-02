@@ -83,6 +83,6 @@ extension VillainsViewController: VillainsViewDelegate {
     }
     
     func errorFetchingVillains() {
-        // TODO
+        showAlert("Ha sucedido algo insesperado! Prueba de nuevo en unos segundos.")
     }
 }

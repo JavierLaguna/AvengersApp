@@ -22,10 +22,10 @@ protocol CreateBattleViewDelegate: class {
 }
 
 class CreateBattleViewModel {
-
+    
     // MARK: Constants
     private let repository: BattlesRepository
-
+    
     // MARK: Variables
     private var avenger: Avenger?
     private var villain: Villain?
@@ -34,7 +34,7 @@ class CreateBattleViewModel {
     
     weak var coordinatorDelegate: CreateBattleCoordinatorDelegate?
     weak var viewDelegate: CreateBattleViewDelegate?
-     
+    
     // MARK: Lifecycle
     init(repository: BattlesRepository) {
         self.repository = repository
@@ -76,10 +76,10 @@ class CreateBattleViewModel {
         let lastBattle = repository.fetchLastBattle()
         guard let battle = repository.createBattle() else {
             Log.error("Error creating new Battle")
-            viewDelegate?.errorCreatingBattle("Algo insesperado ha sucedido! Prueba de nuevo en unos segundos!")
+            viewDelegate?.errorCreatingBattle("Ha sucedido algo insesperado! Prueba de nuevo en unos segundos.")
             return
         }
-    
+        
         battle.number = (lastBattle?.number ?? 0) + 1
         battle.avenger = avenger
         battle.villain = villain
@@ -98,7 +98,7 @@ class CreateBattleViewModel {
     private func getWinner(avenger: Avenger, villain: Villain) -> BattleResult {
         let avengerPower = Int(avenger.power)
         let villainPower = Int(villain.power)
-
+        
         let differencePower = avengerPower - villainPower
         let number = Int.random(in: 0 ..< 11) - differencePower
         

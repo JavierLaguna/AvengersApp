@@ -89,6 +89,15 @@ extension BattlesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel.didSelectRow(at: indexPath)
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        switch editingStyle {
+        case .delete:
+            viewModel.deleteRow(at: indexPath)
+        default:
+            break
+        }
+    }
 }
 
 // MARK: BattlesViewDelegate
@@ -99,6 +108,6 @@ extension BattlesViewController: BattlesViewDelegate {
     }
     
     func errorFetchingBattles() {
-        // TODO
+        showAlert("Ha sucedido algo insesperado! Prueba de nuevo en unos segundos.")
     }
 }
