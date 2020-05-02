@@ -13,6 +13,7 @@ struct BattlesRepositoryCoreData: CoreDataRepository, BattlesRepository {
     // MARK: CoreDataRepository
     var database = CoreDataDatabase()
     var entityName: String { "Battle" }
+    let entityNumberKey: String = "number"
     
     // MARK: BattlesRepository
     func fetchAllBattles() -> [Battle] {
@@ -20,8 +21,10 @@ struct BattlesRepositoryCoreData: CoreDataRepository, BattlesRepository {
     }
     
     func fetchLastBattle() -> Battle? {
-        // TODO
-        return nil
+        let sortDescriptor = NSSortDescriptor(key: entityNumberKey, ascending: false)
+        let fetchLimit = 1
+
+        return database.fetchDataBy(sortDescriptors: [sortDescriptor], fetchLimit: fetchLimit, for: entityName)?.first as? Battle
     }
     
     func createBattle() -> Battle? {

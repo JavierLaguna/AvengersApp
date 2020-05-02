@@ -10,11 +10,16 @@ import UIKit
 
 class CreateBattleCoordinator: Coordinator {
     
+    // MARK: Constants
     private let repository: BattlesRepository
     private let avengersRepository: AvengersRepository
     private let villainsRepository: VillainsRepository
-    private var createBattleViewModel: CreateBattleViewModel?
     
+    // MARK: Variables
+    var createBattleViewModel: CreateBattleViewModel?
+    weak var parentCoordinator: Coordinator?
+    
+    // MARK: Lifecycle
     init(repository: BattlesRepository,
          avengersRepository: AvengersRepository,
          villainsRepository: VillainsRepository,
@@ -40,7 +45,7 @@ class CreateBattleCoordinator: Coordinator {
     }
     
     override func finish() {
-        // TODO: IMPORTANT
+        parentCoordinator?.childDidFinish(self)
     }
 }
 
@@ -66,6 +71,10 @@ extension CreateBattleCoordinator: CreateBattleCoordinatorDelegate {
         
         presenter.present(villainsVC, animated: true, completion: nil)
     }
+    
+    func viewDidFinish() {
+        finish()
+    }
 }
 
 // MARK: AvengersCoordinatorDelegate
@@ -77,7 +86,6 @@ extension CreateBattleCoordinator: AvengersCoordinatorDelegate {
         createBattleViewModel?.avengerAdded(avenger)
     }
 }
-
 
 // MARK: VillainsCoordinatorDelegate
 extension CreateBattleCoordinator: VillainsCoordinatorDelegate {

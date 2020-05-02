@@ -11,6 +11,7 @@ import Foundation
 protocol CreateBattleCoordinatorDelegate: class {
     func addAvengerToBattle()
     func addVillainToBattle()
+    func viewDidFinish()
 }
 
 protocol CreateBattleViewDelegate: class {
@@ -26,10 +27,10 @@ class CreateBattleViewModel {
     private let repository: BattlesRepository
 
     // MARK: Variables
-    private var battle: Battle?
     private var avenger: Avenger?
     private var villain: Villain?
-    private var battleResult: BattleResult?
+    var battle: Battle?
+    var battleResult: BattleResult?
     
     weak var coordinatorDelegate: CreateBattleCoordinatorDelegate?
     weak var viewDelegate: CreateBattleViewDelegate?
@@ -40,6 +41,10 @@ class CreateBattleViewModel {
     }
     
     // MARK: Public Functions
+    func viewDidFinish() {
+        coordinatorDelegate?.viewDidFinish()
+    }
+    
     func addAvenger() {
         coordinatorDelegate?.addAvengerToBattle()
     }
@@ -68,13 +73,14 @@ class CreateBattleViewModel {
             return
         }
         
+        let lastBattle = repository.fetchLastBattle()
         guard let battle = repository.createBattle() else {
             Log.error("Error creating new Battle")
             viewDelegate?.errorCreatingBattle("Algo insesperado ha sucedido! Prueba de nuevo en unos segundos!")
             return
         }
-        
-        battle.number = 0 // TODO
+    
+        battle.number = (lastBattle?.number ?? 0) + 1
         battle.avenger = avenger
         battle.villain = villain
         

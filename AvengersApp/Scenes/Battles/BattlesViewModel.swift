@@ -19,9 +19,13 @@ protocol BattlesViewDelegate: class {
 }
 
 class BattlesViewModel {
+    
+    // MARK: Constants
+    let repository: BattlesRepository
+    
+    // MARK: Variables
     weak var coordinatorDelegate: BattlesCoordinatorDelegate?
     weak var viewDelegate: BattlesViewDelegate?
-    let repository: BattlesRepository
     var battleCellViewModels: [BattleCellViewModel] = []
     var battles = [Battle]() {
         didSet {
@@ -29,11 +33,17 @@ class BattlesViewModel {
         }
     }
     
+    // MARK: Lifecycle
     init(repository: BattlesRepository) {
         self.repository = repository
     }
     
+    // MARK: Public Functions
     func viewWasLoaded() {
+        fetchBattles()
+    }
+    
+    func refreshData() {
         fetchBattles()
     }
     
@@ -51,12 +61,13 @@ class BattlesViewModel {
         coordinatorDelegate?.didSelect(battle: battles[indexPath.row])
     }
     
+    func addBattle() {
+        coordinatorDelegate?.addBattleButtonTapped()
+    }
+    
+    // MARK: Private Functions
     private func fetchBattles() {
         battles = repository.fetchAllBattles()
         viewDelegate?.battlesFetched()
-    }
-    
-    func addBattle() {
-        coordinatorDelegate?.addBattleButtonTapped()
     }
 }

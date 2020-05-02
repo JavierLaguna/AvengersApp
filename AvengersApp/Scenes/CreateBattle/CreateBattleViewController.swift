@@ -45,6 +45,12 @@ class CreateBattleViewController: UIViewController {
         addGestures()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        viewModel.viewDidFinish()
+    }
+    
     // MARK: Private Functions
     private func configureUI() {
         avengerWinImage.isHidden = true
@@ -122,6 +128,9 @@ extension CreateBattleViewController: CreateBattleViewDelegate {
     }
     
     func battleFinish(_ battle: Battle, with result: BattleResult) {
+        
+        battleTitleLabel.text = "Batalla \(battle.number)"
+        
         UIView.animate(withDuration: 0.8, animations: { [weak self] in
             guard let strongSelf = self else { return }
             

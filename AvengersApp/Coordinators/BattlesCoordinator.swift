@@ -10,11 +10,19 @@ import UIKit
 
 class BattlesCoordinator: Coordinator {
     
+    // MARK: Constants
     private let repository: BattlesRepository
     private let avengersRepository: AvengersRepository
     private let villainsRepository: VillainsRepository
+    
+    // MARK: Variables
+    var battlesViewModel: BattlesViewModel?
 
-    init(repository: BattlesRepository, avengersRepository: AvengersRepository, villainsRepository: VillainsRepository) {
+    // MARK: Lifecycle
+    init(repository: BattlesRepository,
+         avengersRepository: AvengersRepository,
+         villainsRepository: VillainsRepository) {
+        
         self.repository = repository
         self.avengersRepository = avengersRepository
         self.villainsRepository = villainsRepository
@@ -32,7 +40,36 @@ class BattlesCoordinator: Coordinator {
         battlesViewModel.viewDelegate = battlesViewController
         battlesViewModel.coordinatorDelegate = self
         
+        self.battlesViewModel = battlesViewModel
+        
         presenter.pushViewController(battlesViewController, animated: false)
+    }
+    
+    override func childDidFinish(_ child: Coordinator?) {
+        guard let child = child else { return }
+        
+        if let createBattle = child as? CreateBattleCoordinator {
+            if createBattle.createBattleViewModel?.battleResult != nil {
+                battlesViewModel?.refreshData()
+            }
+            
+            presenter.dismiss(animated: true, completion: nil)
+        }
+        
+        self.removeChildCoordinator(child)
+    }
+    
+    private func createBattle() {
+        let createBattleCoordinator = CreateBattleCoordinator(
+            repository: repository,
+            avengersRepository: avengersRepository,
+            villainsRepository: villainsRepository,
+            presenter: presenter)
+        
+        self.addChildCoordinator(createBattleCoordinator)
+        createBattleCoordinator.parentCoordinator = self
+        
+        createBattleCoordinator.start()
     }
     
     override func finish() {}
@@ -42,14 +79,7 @@ class BattlesCoordinator: Coordinator {
 extension BattlesCoordinator: BattlesCoordinatorDelegate {
     
     func addBattleButtonTapped() {
-        let createBattleCoordinator = CreateBattleCoordinator(
-            repository: repository,
-            avengersRepository: avengersRepository,
-            villainsRepository: villainsRepository,
-            presenter: presenter)
-        
-        self.addChildCoordinator(createBattleCoordinator)
-        createBattleCoordinator.start()
+        createBattle()
     }
     
     func didSelect(battle: Battle) {

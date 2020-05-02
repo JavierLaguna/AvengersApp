@@ -26,6 +26,10 @@ class Coordinator {
         preconditionFailure("This method needs to be overriden by concrete subclass.")
     }
     
+    func childDidFinish(_ child: Coordinator?) {
+        preconditionFailure("This method needs to be overriden by concrete subclass.")
+    }
+    
     func addChildCoordinator(_ coordinator: Coordinator) {
         childCoordinators.append(coordinator)
     }

@@ -38,6 +38,22 @@ class CoreDataDatabase {
         return try? context()?.fetch(NSFetchRequest<NSFetchRequestResult>(entityName: entityName)) as? [NSManagedObject]
     }
     
+    func fetchDataBy(predicate: NSPredicate? = nil,
+                     sortDescriptors: [NSSortDescriptor]? = nil,
+                     fetchLimit: Int? = nil,
+                     for entityName: String) -> [NSManagedObject]? {
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+        fetchRequest.predicate = predicate
+        fetchRequest.sortDescriptors = sortDescriptors
+        
+        if let fetchLimit = fetchLimit {
+            fetchRequest.fetchLimit = fetchLimit
+        }
+        
+        return try? context()?.fetch(fetchRequest) as? [NSManagedObject]
+    }
+    
     func delete(data: [NSManagedObject]) {
         guard let context = context() else { return }
         
