@@ -11,6 +11,7 @@ import UIKit
 
 protocol AvengerDetailCoordinatorDelegate: class {
     func editPower(for avenger: Avenger)
+    func viewDidFinish()
 }
 
 protocol AvengerDetailViewDelegate: class {
@@ -45,6 +46,7 @@ class AvengerDetailViewModel: HeroDetailViewModel {
             return BattleSmallCellViewModel(battle)
             } ?? []
     }
+    var heroModified: Bool = false
     
     func didSelectRow(at indexPath: IndexPath) {
         // TODO
@@ -61,6 +63,11 @@ class AvengerDetailViewModel: HeroDetailViewModel {
         }
         
         self.avenger = avenger
+        self.heroModified = true
         viewDelegate?.avengerFetched()
+    }
+    
+    func viewDidFinish() {
+        coordinatorDelegate?.viewDidFinish()
     }
 }

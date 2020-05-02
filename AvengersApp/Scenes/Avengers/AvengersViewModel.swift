@@ -36,6 +36,10 @@ class AvengersViewModel {
         fetchAvengers()
     }
     
+    func refreshAvengers() {
+        fetchAvengers()
+    }
+    
     func numberOfRows(in section: Int) -> Int {
         return avengerCellViewModels.count
     }

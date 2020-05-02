@@ -84,7 +84,8 @@ class HeroDetailCoordinator: Coordinator {
         let detailViewModel = VillainDetailViewModel(villain: villain, repository: villainsRepository)
         let detailVC = HeroDetailViewController(viewModel: detailViewModel)
         
-        // TODO       createBattleViewModel.coordinatorDelegate = self
+        detailViewModel.viewDelegate = detailVC
+        detailViewModel.coordinatorDelegate = self
         
         self.heroDetailViewModel = detailViewModel
         
@@ -104,16 +105,37 @@ class HeroDetailCoordinator: Coordinator {
         presenter.present(editHeroPowerVC, animated: true, completion: nil)
     }
     
+    private func editVillainPower(villain: Villain) {
+        guard let villainsRepository = villainsRepository else {
+            return Log.error("Unexpected villainsRepository is nil")
+        }
+        
+        let editHeroPowerVM = EditVillainPowerViewModel(villain, repository: villainsRepository)
+        let editHeroPowerVC = EditHeroPowerViewController(viewModel: editHeroPowerVM)
+        
+        editHeroPowerVM.coordinatorDelegate = self
+        
+        presenter.present(editHeroPowerVC, animated: true, completion: nil)
+    }
+    
     override func finish() {
         parentCoordinator?.childDidFinish(self)
     }
 }
 
-// MARK: AvengerDetailCoordinatorDelegate
-extension HeroDetailCoordinator: AvengerDetailCoordinatorDelegate {
+// MARK: AvengerDetailCoordinatorDelegate - VillainDetailCoordinatorDelegate
+extension HeroDetailCoordinator: AvengerDetailCoordinatorDelegate, VillainDetailCoordinatorDelegate {
     
     func editPower(for avenger: Avenger) {
         editAvengerPower(avenger: avenger)
+    }
+    
+    func editPower(for villain: Villain) {
+        editVillainPower(villain: villain)
+    }
+    
+    func viewDidFinish() {
+        finish()
     }
 }
 

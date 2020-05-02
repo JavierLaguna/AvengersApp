@@ -72,7 +72,9 @@ class BattlesCoordinator: Coordinator {
         createBattleCoordinator.start()
     }
     
-    override func finish() {}
+    override func finish() { // TODO THIS ON ALL
+        self.battlesViewModel = nil
+    }
 }
 
 // MARK: BattlesCoordinatorDelegate

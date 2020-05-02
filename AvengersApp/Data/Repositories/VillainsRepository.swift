@@ -9,10 +9,18 @@
 import Foundation
 
 protocol VillainsRepository {
-    func fetchAllVillains() -> [Villain]
+    // MARK: Creates
     func createVillain() -> Villain?
+
+    // MARK: Fetchs
+    func fetchAllVillains() -> [Villain]
+    func fetchVillainBy(name: String) -> Villain?
+
+    // MARK: Saves
     func saveVillain(_ villain: Villain)
     func saveVillains(_ villains: [Villain])
+    
+    // MARK: Deletes
     func deleteVillain(_ villain: Villain)
     func deleteAllVillains(_ villains: [Villain])
 }

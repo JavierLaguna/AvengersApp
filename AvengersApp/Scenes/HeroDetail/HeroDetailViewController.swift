@@ -41,6 +41,12 @@ class HeroDetailViewController: UIViewController {
         loadHeroDetails()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        viewModel.viewDidFinish()
+    }
+    
     // MARK: Private Functions
     private func configureUI() {
         // TODO FIX
@@ -105,6 +111,14 @@ extension HeroDetailViewController: UICollectionViewDataSource {
 extension HeroDetailViewController: AvengerDetailViewDelegate {
     
     func avengerFetched() {
+        loadHeroDetails()
+    }
+}
+
+// MARK: VillainDetailViewDelegate
+extension HeroDetailViewController: VillainDetailViewDelegate {
+    
+    func villainFetched() {
         loadHeroDetails()
     }
 }

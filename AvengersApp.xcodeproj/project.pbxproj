@@ -26,6 +26,7 @@
 		493ABA46245D85D800C41295 /* EditHeroPowerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 493ABA44245D85D800C41295 /* EditHeroPowerViewController.xib */; };
 		493ABA48245D8CD500C41295 /* EditHeroPowerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493ABA47245D8CD500C41295 /* EditHeroPowerViewModel.swift */; };
 		493ABA4A245DB8F900C41295 /* EditAvengerPowerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493ABA49245DB8F900C41295 /* EditAvengerPowerViewModel.swift */; };
+		493ABA4C245DE4C700C41295 /* EditVillainPowerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493ABA4B245DE4C700C41295 /* EditVillainPowerViewModel.swift */; };
 		49A336A02459E14700C4A899 /* HeroDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A3369F2459E14700C4A899 /* HeroDetailViewModel.swift */; };
 		49A336A22459E3CE00C4A899 /* AvengerDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A336A12459E3CE00C4A899 /* AvengerDetailViewModel.swift */; };
 		49A336A42459ED7E00C4A899 /* VillainDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A336A32459ED7E00C4A899 /* VillainDetailViewModel.swift */; };
@@ -92,6 +93,7 @@
 		493ABA44245D85D800C41295 /* EditHeroPowerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditHeroPowerViewController.xib; sourceTree = "<group>"; };
 		493ABA47245D8CD500C41295 /* EditHeroPowerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditHeroPowerViewModel.swift; sourceTree = "<group>"; };
 		493ABA49245DB8F900C41295 /* EditAvengerPowerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAvengerPowerViewModel.swift; sourceTree = "<group>"; };
+		493ABA4B245DE4C700C41295 /* EditVillainPowerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditVillainPowerViewModel.swift; sourceTree = "<group>"; };
 		49A3369F2459E14700C4A899 /* HeroDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailViewModel.swift; sourceTree = "<group>"; };
 		49A336A12459E3CE00C4A899 /* AvengerDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvengerDetailViewModel.swift; sourceTree = "<group>"; };
 		49A336A32459ED7E00C4A899 /* VillainDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VillainDetailViewModel.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				493ABA44245D85D800C41295 /* EditHeroPowerViewController.xib */,
 				493ABA47245D8CD500C41295 /* EditHeroPowerViewModel.swift */,
 				493ABA49245DB8F900C41295 /* EditAvengerPowerViewModel.swift */,
+				493ABA4B245DE4C700C41295 /* EditVillainPowerViewModel.swift */,
 			);
 			path = EditHeroPower;
 			sourceTree = "<group>";
@@ -538,6 +541,7 @@
 				49AE3DD32458AEDD0099D447 /* HeroDetailViewController.swift in Sources */,
 				49BF15C32452431900FD5BEE /* ReusableView.swift in Sources */,
 				493ABA32245C329F00C41295 /* UIViewController.swift in Sources */,
+				493ABA4C245DE4C700C41295 /* EditVillainPowerViewModel.swift in Sources */,
 				49A336A82459F1BB00C4A899 /* BattleCell.swift in Sources */,
 				49A336A02459E14700C4A899 /* HeroDetailViewModel.swift in Sources */,
 				49A336A22459E3CE00C4A899 /* AvengerDetailViewModel.swift in Sources */,

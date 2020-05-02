@@ -13,14 +13,22 @@ struct VillainsRepositoryCoreData: CoreDataRepository, VillainsRepository {
     // MARK: CoreDataRepository
     var database = CoreDataDatabase()
     var entityName: String { "Villain" }
+    let entityNameKey: String = "name"
     
     // MARK: VillainsRepository
+    func createVillain() -> Villain? {
+        return database.createData(for: entityName) as? Villain
+    }
+    
     func fetchAllVillains() -> [Villain] {
         return database.fetchAllData(for: entityName) as? [Villain] ?? []
     }
     
-    func createVillain() -> Villain? {
-        return database.createData(for: entityName) as? Villain
+    func fetchVillainBy(name: String) -> Villain? {
+        let predicate = NSPredicate(format: "\(entityNameKey) = %@", name)
+        let fetchLimit = 1
+        
+        return database.fetchDataBy(predicate: predicate, fetchLimit: fetchLimit, for: entityName)?.first as? Villain
     }
     
     func saveVillain(_ villain: Villain) {

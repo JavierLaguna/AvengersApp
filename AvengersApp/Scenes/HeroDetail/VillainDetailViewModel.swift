@@ -9,11 +9,24 @@
 import Foundation
 import UIKit
 
+protocol VillainDetailCoordinatorDelegate: class {
+    func editPower(for villain: Villain)
+    func viewDidFinish()
+}
+
+protocol VillainDetailViewDelegate: class {
+    func villainFetched()
+}
+
 class VillainDetailViewModel: HeroDetailViewModel {
-        
+
     // MARK: Constants
-    let villain: Villain
     let repository: VillainsRepository
+    
+    // MARK: Variables
+    private var villain: Villain
+    weak var coordinatorDelegate: VillainDetailCoordinatorDelegate?
+    weak var viewDelegate: VillainDetailViewDelegate?
     
     // MARK: Lifecycle
     init(villain: Villain, repository: VillainsRepository) {
@@ -33,16 +46,28 @@ class VillainDetailViewModel: HeroDetailViewModel {
             return BattleSmallCellViewModel(battle)
         } ?? []
     }
+    var heroModified: Bool = false
     
     func didSelectRow(at indexPath: IndexPath) {
         // TODO
     }
     
     func editPower() {
-        // TODO
+        coordinatorDelegate?.editPower(for: villain)
     }
     
     func refreshHero() {
-        // TODO
+        guard let name = villain.name,
+              let villain = repository.fetchVillainBy(name: name) else {
+                  return Log.error("Can not fetch avenger from repo")
+          }
+          
+          self.villain = villain
+          self.heroModified = true
+          viewDelegate?.villainFetched()
+    }
+    
+    func viewDidFinish() {
+        coordinatorDelegate?.viewDidFinish()
     }
 }

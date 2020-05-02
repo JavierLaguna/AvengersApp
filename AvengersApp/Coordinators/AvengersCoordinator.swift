@@ -10,8 +10,13 @@ import UIKit
 
 class AvengersCoordinator: Coordinator {
     
-    let repository: AvengersRepository
+    // MARK: Constants
+    private let repository: AvengersRepository
     
+    // MARK: Variables
+    var avengersViewModel: AvengersViewModel?
+    
+    // MARK: Lifecycle
     init(repository: AvengersRepository) {
         self.repository = repository
 
@@ -27,8 +32,24 @@ class AvengersCoordinator: Coordinator {
         
         avengersViewModel.viewDelegate = avengersViewController
         avengersViewModel.coordinatorDelegate = self
+        
+        self.avengersViewModel = avengersViewModel
 
         presenter.pushViewController(avengersViewController, animated: false)
+    }
+    
+    override func childDidFinish(_ child: Coordinator?) {
+        guard let child = child else { return }
+        
+        if let avengerDetail = child as? HeroDetailCoordinator {
+            if avengerDetail.heroDetailViewModel?.heroModified ?? false {
+                avengersViewModel?.refreshAvengers()
+            }
+            
+            presenter.dismiss(animated: true, completion: nil)
+        }
+        
+        self.removeChildCoordinator(child)
     }
     
     private func avengerDetail(_ avenger: Avenger) {
@@ -37,11 +58,14 @@ class AvengersCoordinator: Coordinator {
                                                       presenter: presenter)
         
         self.addChildCoordinator(detailCoordinator)
-        
+        detailCoordinator.parentCoordinator = self
+
         detailCoordinator.start()
     }
 
-    override func finish() {}
+    override func finish() {
+        self.avengersViewModel = nil
+    }
 }
 
 // MARK: AvengersCoordinatorDelegate

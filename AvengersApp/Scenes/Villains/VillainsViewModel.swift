@@ -33,7 +33,11 @@ class VillainsViewModel {
     }
     
     func viewWasLoaded() {
-        fetchAvengers()
+        fetchVillains()
+    }
+    
+    func refreshVillains() {
+        fetchVillains()
     }
     
     func numberOfRows(in section: Int) -> Int {
@@ -50,7 +54,7 @@ class VillainsViewModel {
         coordinatorDelegate?.didSelect(villain: villains[indexPath.row])
     }
     
-    private func fetchAvengers() {
+    private func fetchVillains() {
         villains = repository.fetchAllVillains()
         viewDelegate?.villainsFetched()
     }

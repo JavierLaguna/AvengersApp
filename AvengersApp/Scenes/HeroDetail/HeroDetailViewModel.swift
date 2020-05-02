@@ -18,6 +18,7 @@ protocol HeroDetailViewModel {
     var biography: String? { get }
     var tintColor: UIColor { get }
     var battles: [BattleSmallCellViewModel] { get }
+    var heroModified: Bool {set get}
     
     // MARK: Public Functions
     func numberOfRows(in section: Int) -> Int
@@ -25,6 +26,7 @@ protocol HeroDetailViewModel {
     func didSelectRow(at indexPath: IndexPath)
     func editPower()
     func refreshHero()
+    func viewDidFinish()
 }
 
 // MARK: Default Implementation
