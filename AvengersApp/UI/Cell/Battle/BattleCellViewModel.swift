@@ -11,13 +11,14 @@ import UIKit
 
 struct BattleCellViewModel {
     
+    // MARK: Constants
     let battle: Battle
-    
     let battleTitle: String
     let avengerImage: UIImage?
     let villainImage: UIImage?
     let battleWinner: BattleResult?
     
+    // MARK: Lifecycle
     init(_ battle: Battle) {
         self.battle = battle
         

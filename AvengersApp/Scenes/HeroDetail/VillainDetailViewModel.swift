@@ -15,6 +15,7 @@ class VillainDetailViewModel: HeroDetailViewModel {
     let villain: Villain
     let repository: VillainsRepository
     
+    // MARK: Lifecycle
     init(villain: Villain, repository: VillainsRepository) {
         self.villain = villain
         self.repository = repository
@@ -26,4 +27,14 @@ class VillainDetailViewModel: HeroDetailViewModel {
     var power: Int { Int(villain.power) }
     var biography: String? { villain.biography }
     var tintColor: UIColor { .redMain }
+    var battles: [BattleSmallCellViewModel] {
+        return villain.battles?.compactMap { battle in
+            guard let battle = battle as? Battle else { return nil }
+            return BattleSmallCellViewModel(battle)
+        } ?? []
+    }
+    
+    func didSelectRow(at indexPath: IndexPath) {
+        // TODO
+    }
 }

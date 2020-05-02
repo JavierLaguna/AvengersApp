@@ -15,6 +15,7 @@ class HeroDetailViewController: UIViewController {
     @IBOutlet private weak var powerImage: UIImageView!
     @IBOutlet private weak var powerLabel: UILabel!
     @IBOutlet private weak var editPowerButton: UIButton!
+    @IBOutlet private weak var battlesCollectionView: UICollectionView!
     @IBOutlet private weak var biographyTitleLabel: UILabel!
     @IBOutlet private weak var biographyContentLabel: UILabel!
     
@@ -34,8 +35,9 @@ class HeroDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
         configureUI()
+        configureBattlesCollection()
         loadHeroDetails()
     }
     
@@ -44,6 +46,12 @@ class HeroDetailViewController: UIViewController {
         // TODO FIX
         let backButton = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
         navigationItem.backBarButtonItem = backButton
+    }
+    
+    private func configureBattlesCollection() {
+        battlesCollectionView.register(UINib(nibName: BattleSmallCell.nibName, bundle: nil), forCellWithReuseIdentifier: BattleSmallCell.defaultReuseIdentifier)
+                
+        battlesCollectionView.dataSource = self
     }
     
     private func loadHeroDetails() {
@@ -57,6 +65,10 @@ class HeroDetailViewController: UIViewController {
         editPowerButton.tintColor = viewModel.tintColor
         biographyTitleLabel.textColor = viewModel.tintColor
         biographyContentLabel.textColor = viewModel.tintColor
+        
+        if viewModel.battles.isEmpty {
+            battlesCollectionView.removeFromSuperview()
+        }
     }
     
     private func setPowerImage(for power: Int) {
@@ -68,5 +80,24 @@ class HeroDetailViewController: UIViewController {
     // MARK: IBActions
     @IBAction private func onTapEditPowerButton(_ sender: Any) {
         print("EDIT")
+    }
+}
+
+
+// MARK: UICollectionViewDataSource
+extension HeroDetailViewController: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel.numberOfRows(in: section)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = battlesCollectionView.dequeueReusableCell(withReuseIdentifier: BattleSmallCell.defaultReuseIdentifier, for: indexPath) as? BattleSmallCell,
+            let cellViewModel = viewModel.viewModelCell(at: indexPath) else {
+                return UICollectionViewCell()
+        }
+        
+        cell.viewModel = cellViewModel
+        return cell
     }
 }

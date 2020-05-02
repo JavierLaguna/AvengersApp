@@ -15,6 +15,7 @@ class AvengerDetailViewModel: HeroDetailViewModel {
     let avenger: Avenger
     let repository: AvengersRepository
     
+    // MARK: Lifecycle
     init(avenger: Avenger, repository: AvengersRepository) {
         self.avenger = avenger
         self.repository = repository
@@ -26,4 +27,14 @@ class AvengerDetailViewModel: HeroDetailViewModel {
     var power: Int { Int(avenger.power) }
     var biography: String? { avenger.biography }
     var tintColor: UIColor { .blueMain }
+    var battles: [BattleSmallCellViewModel] {
+        return avenger.battles?.compactMap { battle in
+            guard let battle = battle as? Battle else { return nil }
+            return BattleSmallCellViewModel(battle)
+        } ?? []
+    }
+    
+    func didSelectRow(at indexPath: IndexPath) {
+        // TODO
+    }
 }
