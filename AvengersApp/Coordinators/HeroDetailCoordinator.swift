@@ -68,8 +68,8 @@ class HeroDetailCoordinator: Coordinator {
         let detailViewModel = AvengerDetailViewModel(avenger: avenger, repository: avengersRepository)
         let detailVC = HeroDetailViewController(viewModel: detailViewModel)
         
-        // TODO       createBattleViewModel.viewDelegate = createBattleVC
-        // TODO       createBattleViewModel.coordinatorDelegate = self
+        detailViewModel.viewDelegate = detailVC
+        detailViewModel.coordinatorDelegate = self
         
         self.heroDetailViewModel = detailViewModel
         
@@ -78,13 +78,12 @@ class HeroDetailCoordinator: Coordinator {
     
     private func startVillainDetail() {
         guard let villain = villain, let villainsRepository = villainsRepository else {
-            return Log.error("Unexpected villain or avengersRepository is nil")
+            return Log.error("Unexpected villain or villainssRepository is nil")
         }
         
         let detailViewModel = VillainDetailViewModel(villain: villain, repository: villainsRepository)
         let detailVC = HeroDetailViewController(viewModel: detailViewModel)
         
-        // TODO       createBattleViewModel.viewDelegate = createBattleVC
         // TODO       createBattleViewModel.coordinatorDelegate = self
         
         self.heroDetailViewModel = detailViewModel
@@ -92,9 +91,40 @@ class HeroDetailCoordinator: Coordinator {
         presenter.pushViewController(detailVC, animated: true)
     }
     
+    private func editAvengerPower(avenger: Avenger) {
+        guard let avengersRepository = avengersRepository else {
+            return Log.error("Unexpected avengersRepository is nil")
+        }
+        
+        let editHeroPowerVM = EditAvengerPowerViewModel(avenger, repository: avengersRepository)
+        let editHeroPowerVC = EditHeroPowerViewController(viewModel: editHeroPowerVM)
+        
+        editHeroPowerVM.coordinatorDelegate = self
+        
+        presenter.present(editHeroPowerVC, animated: true, completion: nil)
+    }
+    
     override func finish() {
         parentCoordinator?.childDidFinish(self)
     }
 }
 
+// MARK: AvengerDetailCoordinatorDelegate
+extension HeroDetailCoordinator: AvengerDetailCoordinatorDelegate {
+    
+    func editPower(for avenger: Avenger) {
+        editAvengerPower(avenger: avenger)
+    }
+}
 
+// MARK: EditHeroPowerCoordinatorDelegate
+extension HeroDetailCoordinator: EditHeroPowerCoordinatorDelegate {
+    
+    func viewDidFinish(powerDidChange: Bool) {
+        if powerDidChange {
+            heroDetailViewModel?.refreshHero()
+        }
+        
+        presenter.dismiss(animated: true, completion: nil)
+    }
+}

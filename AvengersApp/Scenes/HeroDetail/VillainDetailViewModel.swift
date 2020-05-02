@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class VillainDetailViewModel: HeroDetailViewModel {
-    
+        
     // MARK: Constants
     let villain: Villain
     let repository: VillainsRepository
@@ -35,6 +35,14 @@ class VillainDetailViewModel: HeroDetailViewModel {
     }
     
     func didSelectRow(at indexPath: IndexPath) {
+        // TODO
+    }
+    
+    func editPower() {
+        // TODO
+    }
+    
+    func refreshHero() {
         // TODO
     }
 }

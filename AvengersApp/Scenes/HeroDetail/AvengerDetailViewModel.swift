@@ -9,11 +9,23 @@
 import Foundation
 import UIKit
 
+protocol AvengerDetailCoordinatorDelegate: class {
+    func editPower(for avenger: Avenger)
+}
+
+protocol AvengerDetailViewDelegate: class {
+    func avengerFetched()
+}
+
 class AvengerDetailViewModel: HeroDetailViewModel {
     
     // MARK: Constants
-    let avenger: Avenger
-    let repository: AvengersRepository
+    private let repository: AvengersRepository
+    
+    // MARK: Variables
+    private var avenger: Avenger
+    weak var coordinatorDelegate: AvengerDetailCoordinatorDelegate?
+    weak var viewDelegate: AvengerDetailViewDelegate?
     
     // MARK: Lifecycle
     init(avenger: Avenger, repository: AvengersRepository) {
@@ -31,10 +43,24 @@ class AvengerDetailViewModel: HeroDetailViewModel {
         return avenger.battles?.compactMap { battle in
             guard let battle = battle as? Battle else { return nil }
             return BattleSmallCellViewModel(battle)
-        } ?? []
+            } ?? []
     }
     
     func didSelectRow(at indexPath: IndexPath) {
         // TODO
+    }
+    
+    func editPower() {
+        coordinatorDelegate?.editPower(for: avenger)
+    }
+    
+    func refreshHero() {
+        guard let name = avenger.name,
+            let avenger = repository.fetchAvengerBy(name: name) else {
+                return Log.error("Can not fetch avenger from repo")
+        }
+        
+        self.avenger = avenger
+        viewDelegate?.avengerFetched()
     }
 }

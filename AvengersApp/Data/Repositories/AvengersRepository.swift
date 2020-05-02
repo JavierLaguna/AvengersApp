@@ -9,10 +9,18 @@
 import Foundation
 
 protocol AvengersRepository {
-    func fetchAllAvengers() -> [Avenger]
+    // MARK: Creates
     func createAvenger() -> Avenger?
+    
+    // MARK: Fetchs
+    func fetchAllAvengers() -> [Avenger]
+    func fetchAvengerBy(name: String) -> Avenger?
+    
+    // MARK: Saves
     func saveAvenger(_ avenger: Avenger)
     func saveAvengers(_ avengers: [Avenger])
+    
+    // MARK: Deletes
     func deleteAvenger(_ avenger: Avenger)
     func deleteAllAvengers(_ avengers: [Avenger])
 }

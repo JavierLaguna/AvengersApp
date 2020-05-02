@@ -50,7 +50,7 @@ class HeroDetailViewController: UIViewController {
     
     private func configureBattlesCollection() {
         battlesCollectionView.register(UINib(nibName: BattleSmallCell.nibName, bundle: nil), forCellWithReuseIdentifier: BattleSmallCell.defaultReuseIdentifier)
-                
+        
         battlesCollectionView.dataSource = self
     }
     
@@ -79,10 +79,9 @@ class HeroDetailViewController: UIViewController {
     
     // MARK: IBActions
     @IBAction private func onTapEditPowerButton(_ sender: Any) {
-        print("EDIT")
+        viewModel.editPower()
     }
 }
-
 
 // MARK: UICollectionViewDataSource
 extension HeroDetailViewController: UICollectionViewDataSource {
@@ -99,5 +98,13 @@ extension HeroDetailViewController: UICollectionViewDataSource {
         
         cell.viewModel = cellViewModel
         return cell
+    }
+}
+
+// MARK: AvengerDetailViewDelegate
+extension HeroDetailViewController: AvengerDetailViewDelegate {
+    
+    func avengerFetched() {
+        loadHeroDetails()
     }
 }

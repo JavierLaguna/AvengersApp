@@ -23,6 +23,8 @@ protocol HeroDetailViewModel {
     func numberOfRows(in section: Int) -> Int
     func viewModelCell(at indexPath: IndexPath) -> BattleSmallCellViewModel?
     func didSelectRow(at indexPath: IndexPath)
+    func editPower()
+    func refreshHero()
 }
 
 // MARK: Default Implementation

@@ -16,7 +16,7 @@ class HeroCell: UITableViewCell, NibLoadableView, ReusableView {
     @IBOutlet private weak var powerImage: UIImageView!
     
     // MARK: Constants
-    let powerIconPath = "ic_stars_"
+    private let powerIconPath = "ic_stars_"
     
     // MARK: Variables
     var viewModel: HeroCellViewModel? {
