@@ -20,6 +20,8 @@
 		493ABA39245D695A00C41295 /* BattleSmallCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493ABA38245D695A00C41295 /* BattleSmallCellViewModel.swift */; };
 		493ABA3C245D739300C41295 /* BattleSmallCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493ABA3A245D739300C41295 /* BattleSmallCell.swift */; };
 		493ABA3D245D739300C41295 /* BattleSmallCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 493ABA3B245D739300C41295 /* BattleSmallCell.xib */; };
+		493ABA3F245D7C2A00C41295 /* HeroDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493ABA3E245D7C2A00C41295 /* HeroDetailCoordinator.swift */; };
+		493ABA41245D801800C41295 /* HeroType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493ABA40245D801700C41295 /* HeroType.swift */; };
 		49A336A02459E14700C4A899 /* HeroDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A3369F2459E14700C4A899 /* HeroDetailViewModel.swift */; };
 		49A336A22459E3CE00C4A899 /* AvengerDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A336A12459E3CE00C4A899 /* AvengerDetailViewModel.swift */; };
 		49A336A42459ED7E00C4A899 /* VillainDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A336A32459ED7E00C4A899 /* VillainDetailViewModel.swift */; };
@@ -80,6 +82,8 @@
 		493ABA38245D695A00C41295 /* BattleSmallCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleSmallCellViewModel.swift; sourceTree = "<group>"; };
 		493ABA3A245D739300C41295 /* BattleSmallCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleSmallCell.swift; sourceTree = "<group>"; };
 		493ABA3B245D739300C41295 /* BattleSmallCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BattleSmallCell.xib; sourceTree = "<group>"; };
+		493ABA3E245D7C2A00C41295 /* HeroDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailCoordinator.swift; sourceTree = "<group>"; };
+		493ABA40245D801700C41295 /* HeroType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroType.swift; sourceTree = "<group>"; };
 		49A3369F2459E14700C4A899 /* HeroDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailViewModel.swift; sourceTree = "<group>"; };
 		49A336A12459E3CE00C4A899 /* AvengerDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvengerDetailViewModel.swift; sourceTree = "<group>"; };
 		49A336A32459ED7E00C4A899 /* VillainDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VillainDetailViewModel.swift; sourceTree = "<group>"; };
@@ -280,6 +284,7 @@
 				49BF15B7245240C000FD5BEE /* BattlesCoordinator.swift */,
 				493ABA2F245C168D00C41295 /* CreateBattleCoordinator.swift */,
 				49BF15B024523F6C00FD5BEE /* VillainsCoordinator.swift */,
+				493ABA3E245D7C2A00C41295 /* HeroDetailCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -406,8 +411,9 @@
 		49D6582024575F8A000EBF4B /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				49AE3DBE245897100099D447 /* Hero.swift */,
 				493ABA2D245C0F1100C41295 /* BattleResult.swift */,
+				49AE3DBE245897100099D447 /* Hero.swift */,
+				493ABA40245D801700C41295 /* HeroType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -520,6 +526,8 @@
 				49D6581024573F65000EBF4B /* AvengersViewModel.swift in Sources */,
 				49AE3DCD2458A9BF0099D447 /* VillainsViewModel.swift in Sources */,
 				493ABA39245D695A00C41295 /* BattleSmallCellViewModel.swift in Sources */,
+				493ABA41245D801800C41295 /* HeroType.swift in Sources */,
+				493ABA3F245D7C2A00C41295 /* HeroDetailCoordinator.swift in Sources */,
 				493ABA30245C168D00C41295 /* CreateBattleCoordinator.swift in Sources */,
 				49AE3DC124589C790099D447 /* SettingsRepository.swift in Sources */,
 				49D6581424574858000EBF4B /* AvengersRepository.swift in Sources */,

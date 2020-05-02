@@ -30,6 +30,16 @@ class AvengersCoordinator: Coordinator {
 
         presenter.pushViewController(avengersViewController, animated: false)
     }
+    
+    private func avengerDetail(_ avenger: Avenger) {
+        let detailCoordinator = HeroDetailCoordinator(avenger: avenger,
+                                                      avengersRepository: repository,
+                                                      presenter: presenter)
+        
+        self.addChildCoordinator(detailCoordinator)
+        
+        detailCoordinator.start()
+    }
 
     override func finish() {}
 }
@@ -38,9 +48,6 @@ class AvengersCoordinator: Coordinator {
 extension AvengersCoordinator: AvengersCoordinatorDelegate {
     
     func didSelect(avenger: Avenger) {
-        
-        let detailViewModel = AvengerDetailViewModel(avenger: avenger, repository: repository)
-        let detailVC = HeroDetailViewController(viewModel: detailViewModel)
-        presenter.pushViewController(detailVC, animated: true)
+        avengerDetail(avenger)
     }
 }
