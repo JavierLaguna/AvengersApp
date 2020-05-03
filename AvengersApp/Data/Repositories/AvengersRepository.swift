@@ -11,6 +11,7 @@ import Foundation
 protocol AvengersRepository {
     // MARK: Creates
     func createAvenger() -> Avenger?
+    func createAvengers(from heroList: [Hero]) -> [Avenger]
     
     // MARK: Fetchs
     func fetchAllAvengers() -> [Avenger]

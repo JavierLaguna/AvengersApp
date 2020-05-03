@@ -20,6 +20,21 @@ struct VillainsRepositoryCoreData: CoreDataRepository, VillainsRepository {
         return database.createData(for: entityName) as? Villain
     }
     
+    func createVillain(from heroList: [Hero]) -> [Villain] {
+        let villains: [Villain] = heroList.compactMap {
+            let villain = createVillain()
+            villain?.name = $0.name
+            villain?.image = $0.image
+            villain?.power = Int16($0.power)
+            villain?.biography = $0.biography
+            return villain
+        }
+        
+        saveVillains(villains)
+        
+        return villains
+    }
+    
     func fetchAllVillains() -> [Villain] {
         return database.fetchAllData(for: entityName) as? [Villain] ?? []
     }

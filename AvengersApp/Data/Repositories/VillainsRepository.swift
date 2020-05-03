@@ -11,6 +11,7 @@ import Foundation
 protocol VillainsRepository {
     // MARK: Creates
     func createVillain() -> Villain?
+    func createVillain(from heroList: [Hero]) -> [Villain]
 
     // MARK: Fetchs
     func fetchAllVillains() -> [Villain]

@@ -62,7 +62,7 @@ class AppCoordinator: Coordinator {
         let mainTabBar = MainTabBarController(viewModel: mainTabBarVM)
         
         mainTabBarVM.viewDelegate = mainTabBar
-      
+        
         window.rootViewController = mainTabBar
         window.makeKeyAndVisible()
     }
@@ -73,55 +73,42 @@ class AppCoordinator: Coordinator {
 // MARK: Load JSON data
 extension AppCoordinator {
     
-    // TODO: DO ON OTHER THREAD
     private func loadJsonData() {
-        do {
-            try loadAvengers()
-            try loadVillains()
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            guard let strongSelf = self else { return }
             
-            settingsRepository.setFirstAppLaunch(false)
-        } catch {
-            Log.error(error.localizedDescription)
+            do {
+                let avengers = try strongSelf.loadAvengersJSON()
+                let villains = try strongSelf.loadVillainsJSON()
+                
+                DispatchQueue.main.async {
+                    _ = strongSelf.avengersRepository.createAvengers(from: avengers)
+                    _ = strongSelf.villainsRepository.createVillain(from: villains)
+                    strongSelf.settingsRepository.setFirstAppLaunch(false)
+                }
+            } catch {
+                Log.error(error.localizedDescription)
+            }
         }
     }
     
-    private func loadAvengers() throws {
+    private func loadAvengersJSON() throws -> [Hero] {
         guard let pathURL = Bundle.main.url(forResource: "avengers_data", withExtension: "json") else {
-            return Log.error("Can not find `avengers_data` resource")
+            Log.error("Can not find `avengers_data` resource")
+            return []
         }
         
         let data = try Data(contentsOf: pathURL)
-        let heroList = try JSONDecoder().decode([Hero].self, from: data)
-        
-        let avengers: [Avenger] = heroList.compactMap {
-            let avenger = avengersRepository.createAvenger()
-            avenger?.name = $0.name
-            avenger?.image = $0.image
-            avenger?.power = Int16($0.power)
-            avenger?.biography = $0.biography
-            return avenger
-        }
-        
-        avengersRepository.saveAvengers(avengers)
+        return try JSONDecoder().decode([Hero].self, from: data)
     }
     
-    private func loadVillains() throws {
+    private func loadVillainsJSON() throws -> [Hero]  {
         guard let pathURL = Bundle.main.url(forResource: "villains_data", withExtension: "json") else {
-            return Log.error("Can not find `villains_data` resource")
+            Log.error("Can not find `villains_data` resource")
+            return []
         }
         
         let data = try Data(contentsOf: pathURL)
-        let heroList = try JSONDecoder().decode([Hero].self, from: data)
-        
-        let villains: [Villain] = heroList.compactMap {
-            let villain = villainsRepository.createVillain()
-            villain?.name = $0.name
-            villain?.image = $0.image
-            villain?.power = Int16($0.power)
-            villain?.biography = $0.biography
-            return villain
-        }
-        
-        villainsRepository.saveVillains(villains)
+        return try JSONDecoder().decode([Hero].self, from: data)
     }
 }
