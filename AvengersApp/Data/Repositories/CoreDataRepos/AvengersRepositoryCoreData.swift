@@ -11,7 +11,7 @@ import Foundation
 struct AvengersRepositoryCoreData: CoreDataRepository, AvengersRepository {
     
     // MARK: CoreDataRepository
-    var database = CoreDataDatabase()
+    let database: CoreDataDatabase
     var entityName: String { "Avenger" }
     let entityNameKey: String = "name"
 

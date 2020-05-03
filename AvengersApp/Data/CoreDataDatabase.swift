@@ -11,31 +11,47 @@ import CoreData
 
 class CoreDataDatabase {
     
-    // MARK: Managed Object Context
-    private func context() -> NSManagedObjectContext? {
+    // MARK: Persistent Container
+    private func persistentContainer() -> NSPersistentContainer? {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return nil
         }
         
-        return appDelegate.persistentContainer.viewContext
+        return appDelegate.persistentContainer
     }
+    
+    // MARK: Managed Object Context
+    private func context() -> NSManagedObjectContext? {
+        guard let persistentContainer = persistentContainer() else {
+            return nil
+        }
+        
+        return persistentContainer.viewContext
+    }
+    
+    // MARK: Background Thread - Managed Object Context
+    lazy var backgroundContext: NSManagedObjectContext? = {
+        guard let persistentContainer = persistentContainer() else {
+            return nil
+        }
+        
+        let newbackgroundContext = persistentContainer.newBackgroundContext()
+        newbackgroundContext.automaticallyMergesChangesFromParent = true
+        return newbackgroundContext
+    }()
     
     // MARK: Database methods
     func createData(for entityName: String) -> NSManagedObject? {
-        guard let context = context(),
-            let entity = NSEntityDescription.entity(forEntityName: entityName, in: context) else {
+        guard let backgroundContext = backgroundContext,
+            let entity = NSEntityDescription.entity(forEntityName: entityName, in: backgroundContext) else {
                 return nil
         }
         
-        return NSManagedObject(entity: entity, insertInto: context)
-    }
-    
-    func persistAllData() {
-        try? context()?.save()
+        return NSManagedObject(entity: entity, insertInto: backgroundContext)
     }
     
     func fetchAllData(for entityName: String) -> [NSManagedObject]? {
-        return try? context()?.fetch(NSFetchRequest<NSFetchRequestResult>(entityName: entityName)) as? [NSManagedObject]
+        return try? backgroundContext?.fetch(NSFetchRequest<NSFetchRequestResult>(entityName: entityName)) as? [NSManagedObject]
     }
     
     func fetchDataBy(predicate: NSPredicate? = nil,
@@ -51,16 +67,26 @@ class CoreDataDatabase {
             fetchRequest.fetchLimit = fetchLimit
         }
         
-        return try? context()?.fetch(fetchRequest) as? [NSManagedObject]
+        return try? backgroundContext?.fetch(fetchRequest) as? [NSManagedObject]
+    }
+    
+    func persistAllData() {
+        guard let backgroundContext = backgroundContext else { return }
+        
+        backgroundContext.performAndWait {
+            try? backgroundContext.save()
+        }
     }
     
     func delete(data: [NSManagedObject]) {
-        guard let context = context() else { return }
+        guard let backgroundContext = backgroundContext else { return }
         
-        data.forEach {
-            context.delete($0)
+        backgroundContext.performAndWait {
+            data.forEach {
+                backgroundContext.delete($0)
+            }
+            
+            try? backgroundContext.save()
         }
-        
-        try? context.save()
     }
 }
