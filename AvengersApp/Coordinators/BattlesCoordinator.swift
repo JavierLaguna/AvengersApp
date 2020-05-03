@@ -72,6 +72,13 @@ class BattlesCoordinator: Coordinator {
         createBattleCoordinator.start()
     }
     
+    private func battleDetail(battle: Battle) {
+        let battleDetailVM = BattleDetailViewModel(battle: battle, repository: repository)
+        let battleDetailVC = BattleDetailViewController(viewModel: battleDetailVM)
+        
+        presenter.pushViewController(battleDetailVC, animated: true)
+    }
+    
     override func finish() { // TODO THIS ON ALL
         self.battlesViewModel = nil
     }
@@ -85,7 +92,7 @@ extension BattlesCoordinator: BattlesCoordinatorDelegate {
     }
     
     func didSelect(battle: Battle) {
-        print("SELECTED - TODO")
+        battleDetail(battle: battle)
     }
 }
 

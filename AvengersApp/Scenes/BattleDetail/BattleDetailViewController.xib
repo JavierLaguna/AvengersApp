@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BattleDetailViewController" customModule="AvengersApp" customModuleProvider="target">
+            <connections>
+                <outlet property="avengerBackgroundView" destination="vhJ-cG-Y1i" id="8a1-TX-GPt"/>
+                <outlet property="avengerImage" destination="Tut-oJ-f5z" id="AD2-q1-3MC"/>
+                <outlet property="avengerResultLabel" destination="UWO-ZK-m8d" id="upa-MY-fDN"/>
+                <outlet property="avengerWinImage" destination="ykg-Qn-VQ6" id="fIZ-KK-0ua"/>
+                <outlet property="battleIconImage" destination="k9W-el-C8E" id="BJu-Jp-ja1"/>
+                <outlet property="battleTitleLabel" destination="XcG-Dk-CiQ" id="VoG-ds-bWu"/>
+                <outlet property="deleteButton" destination="E0X-MT-ueb" id="Dud-71-CzI"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="villainBackgroundView" destination="SRk-mR-yyt" id="6Bc-CE-kst"/>
+                <outlet property="villainImage" destination="Bes-vg-YS4" id="LLW-Ea-o01"/>
+                <outlet property="villainResultLabel" destination="iqL-2n-b84" id="h3f-hz-b4e"/>
+                <outlet property="villainWinImage" destination="q56-AU-2xD" id="5fh-TE-iUm"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8dH-zH-dKX">
+                    <rect key="frame" x="20" y="64" width="374" height="786"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Batalla" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XcG-Dk-CiQ">
+                            <rect key="frame" x="0.0" y="0.0" width="374" height="43"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                            <color key="textColor" name="BlueMain"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Win" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UWO-ZK-m8d">
+                            <rect key="frame" x="0.0" y="209.5" width="374" height="36"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                            <color key="textColor" name="BlueMain"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-10" translatesAutoresizingMaskIntoConstraints="NO" id="iGh-cr-Sje">
+                            <rect key="frame" x="0.0" y="255.5" width="374" height="356"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="NQN-bu-PNf" userLabel="Avenger View">
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="138"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vhJ-cG-Y1i" userLabel="background">
+                                            <rect key="frame" x="73.5" y="0.0" width="227.5" height="138"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </view>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_heroe_ironman" translatesAutoresizingMaskIntoConstraints="NO" id="Tut-oJ-f5z">
+                                            <rect key="frame" x="75.5" y="2" width="223.5" height="134"/>
+                                        </imageView>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rosette" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ykg-Qn-VQ6">
+                                            <rect key="frame" x="259" y="-19" width="60" height="61"/>
+                                            <color key="tintColor" name="Gold"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="60" id="1gD-W9-vRw"/>
+                                                <constraint firstAttribute="height" constant="60" id="WBh-0i-Y4Q"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="Tut-oJ-f5z" firstAttribute="top" secondItem="NQN-bu-PNf" secondAttribute="top" constant="2" id="6KY-Xg-N5b"/>
+                                        <constraint firstItem="vhJ-cG-Y1i" firstAttribute="top" secondItem="Tut-oJ-f5z" secondAttribute="top" constant="-2" id="6SQ-tk-hQb"/>
+                                        <constraint firstItem="vhJ-cG-Y1i" firstAttribute="bottom" secondItem="Tut-oJ-f5z" secondAttribute="bottom" constant="2" id="BhM-zt-Hnr"/>
+                                        <constraint firstItem="ykg-Qn-VQ6" firstAttribute="top" secondItem="Tut-oJ-f5z" secondAttribute="top" constant="-20" id="Fgd-H8-v17"/>
+                                        <constraint firstItem="vhJ-cG-Y1i" firstAttribute="trailing" secondItem="Tut-oJ-f5z" secondAttribute="trailing" constant="2" id="XBD-KN-reC"/>
+                                        <constraint firstAttribute="bottom" secondItem="Tut-oJ-f5z" secondAttribute="bottom" constant="2" id="djd-Qp-EwO"/>
+                                        <constraint firstItem="ykg-Qn-VQ6" firstAttribute="trailing" secondItem="Tut-oJ-f5z" secondAttribute="trailing" constant="20" id="luY-3U-LUC"/>
+                                        <constraint firstItem="vhJ-cG-Y1i" firstAttribute="leading" secondItem="Tut-oJ-f5z" secondAttribute="leading" constant="-2" id="xhs-fY-y33"/>
+                                        <constraint firstItem="Tut-oJ-f5z" firstAttribute="centerX" secondItem="NQN-bu-PNf" secondAttribute="centerX" id="zYN-VI-fOe"/>
+                                    </constraints>
+                                </view>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" image="ic_battle_round" translatesAutoresizingMaskIntoConstraints="NO" id="k9W-el-C8E">
+                                    <rect key="frame" x="0.0" y="128" width="374" height="100"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="100" id="uqE-7V-RaO"/>
+                                    </constraints>
+                                </imageView>
+                                <view contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="RdW-D9-z7m" userLabel="Villain View">
+                                    <rect key="frame" x="0.0" y="218" width="374" height="138"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SRk-mR-yyt" userLabel="background">
+                                            <rect key="frame" x="73.5" y="2" width="225.5" height="132"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </view>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_villain_thanos" translatesAutoresizingMaskIntoConstraints="NO" id="Bes-vg-YS4">
+                                            <rect key="frame" x="75.5" y="2" width="223.5" height="134"/>
+                                        </imageView>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rosette" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="q56-AU-2xD">
+                                            <rect key="frame" x="259" y="-19" width="60" height="61"/>
+                                            <color key="tintColor" name="Gold"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="60" id="gQc-qA-LiQ"/>
+                                                <constraint firstAttribute="height" constant="60" id="zXz-ul-nxS"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="SRk-mR-yyt" firstAttribute="leading" secondItem="Bes-vg-YS4" secondAttribute="leading" constant="-2" id="3T2-bM-G10"/>
+                                        <constraint firstItem="SRk-mR-yyt" firstAttribute="top" secondItem="Bes-vg-YS4" secondAttribute="top" id="94F-uv-lNK"/>
+                                        <constraint firstItem="Bes-vg-YS4" firstAttribute="centerX" secondItem="RdW-D9-z7m" secondAttribute="centerX" id="Ifv-QL-6HT"/>
+                                        <constraint firstItem="q56-AU-2xD" firstAttribute="top" secondItem="Bes-vg-YS4" secondAttribute="top" constant="-20" id="PbC-34-PdX"/>
+                                        <constraint firstItem="SRk-mR-yyt" firstAttribute="trailing" secondItem="Bes-vg-YS4" secondAttribute="trailing" id="WQA-2v-gSN"/>
+                                        <constraint firstItem="SRk-mR-yyt" firstAttribute="bottom" secondItem="Bes-vg-YS4" secondAttribute="bottom" constant="-2" id="ffx-Ha-SI0"/>
+                                        <constraint firstItem="q56-AU-2xD" firstAttribute="trailing" secondItem="Bes-vg-YS4" secondAttribute="trailing" constant="20" id="vuF-8b-60B"/>
+                                        <constraint firstItem="Bes-vg-YS4" firstAttribute="top" secondItem="RdW-D9-z7m" secondAttribute="top" constant="2" id="w2s-ol-mDb"/>
+                                        <constraint firstAttribute="bottom" secondItem="Bes-vg-YS4" secondAttribute="bottom" constant="2" id="xhk-9D-UPl"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="k9W-el-C8E" firstAttribute="centerY" secondItem="iGh-cr-Sje" secondAttribute="centerY" id="YzH-0R-Yb3"/>
+                            </constraints>
+                        </stackView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lose" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iqL-2n-b84">
+                            <rect key="frame" x="0.0" y="621.5" width="374" height="36"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                            <color key="textColor" name="RedMain"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ejv-ZD-Snk" userLabel="Button View">
+                            <rect key="frame" x="0.0" y="716" width="374" height="70"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E0X-MT-ueb">
+                                    <rect key="frame" x="152" y="0.0" width="70" height="70"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="70" id="aoX-Yh-inF"/>
+                                        <constraint firstAttribute="height" constant="70" id="gPv-fC-bHd"/>
+                                    </constraints>
+                                    <color key="tintColor" name="BlueMain"/>
+                                    <state key="normal" image="trash.fill" catalog="system">
+                                        <color key="titleColor" name="BlueMain"/>
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="bold"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="onTapDeleteButton:" destination="-1" eventType="touchUpInside" id="OwG-dk-sqm"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="E0X-MT-ueb" secondAttribute="bottom" id="MDp-jG-Rm2"/>
+                                <constraint firstItem="E0X-MT-ueb" firstAttribute="centerX" secondItem="Ejv-ZD-Snk" secondAttribute="centerX" id="fAp-sq-T94"/>
+                                <constraint firstItem="E0X-MT-ueb" firstAttribute="top" secondItem="Ejv-ZD-Snk" secondAttribute="top" id="uFw-uL-9M6"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="8dH-zH-dKX" secondAttribute="trailing" constant="20" id="InO-0B-yPI"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="8dH-zH-dKX" secondAttribute="bottom" constant="12" id="S4L-1h-oLh"/>
+                <constraint firstItem="8dH-zH-dKX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="SL1-9L-q23"/>
+                <constraint firstItem="8dH-zH-dKX" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="vTa-Pw-NFF"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="131.8840579710145" y="152.67857142857142"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ic_battle_round" width="512" height="512"/>
+        <image name="img_heroe_ironman" width="223.33332824707031" height="138"/>
+        <image name="img_villain_thanos" width="223.33332824707031" height="138"/>
+        <image name="rosette" catalog="system" width="100" height="128"/>
+        <image name="trash.fill" catalog="system" width="121" height="128"/>
+        <namedColor name="BlueMain">
+            <color red="0.14509803921568629" green="0.40000000000000002" blue="0.59215686274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Gold">
+            <color red="0.83137254901960789" green="0.68627450980392157" blue="0.21568627450980393" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="RedMain">
+            <color red="0.68627450980392157" green="0.12156862745098039" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
