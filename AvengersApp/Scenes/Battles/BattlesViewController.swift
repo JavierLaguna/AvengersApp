@@ -30,11 +30,15 @@ class BattlesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel.viewWasLoaded()
-        
         configureUI()
         configureTable()
         addGestures()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        viewModel.viewWasLoaded()
     }
     
     // MARK: Private functions

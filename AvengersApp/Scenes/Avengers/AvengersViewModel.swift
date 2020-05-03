@@ -46,11 +46,13 @@ class AvengersViewModel {
     
     func viewModelCell(at indexPath: IndexPath) -> HeroCellViewModel? {
         guard indexPath.row < avengerCellViewModels.count else { return nil }
+        
         return avengerCellViewModels[indexPath.row]
     }
     
     func didSelectRow(at indexPath: IndexPath) {
         guard indexPath.row < avengerCellViewModels.count else { return }
+        
         coordinatorDelegate?.didSelect(avenger: avengers[indexPath.row])
     }
     

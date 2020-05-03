@@ -12,13 +12,15 @@ class AvengersCoordinator: Coordinator {
     
     // MARK: Constants
     private let repository: AvengersRepository
+    private let battlesRepository: BattlesRepository
     
     // MARK: Variables
     var avengersViewModel: AvengersViewModel?
     
     // MARK: Lifecycle
-    init(repository: AvengersRepository) {
+    init(repository: AvengersRepository, battlesRepository: BattlesRepository) {
         self.repository = repository
+        self.battlesRepository = battlesRepository
 
         super.init()        
     }
@@ -55,6 +57,7 @@ class AvengersCoordinator: Coordinator {
     private func avengerDetail(_ avenger: Avenger) {
         let detailCoordinator = HeroDetailCoordinator(avenger: avenger,
                                                       avengersRepository: repository,
+                                                      battlesRepository: battlesRepository,
                                                       presenter: presenter)
         
         self.addChildCoordinator(detailCoordinator)

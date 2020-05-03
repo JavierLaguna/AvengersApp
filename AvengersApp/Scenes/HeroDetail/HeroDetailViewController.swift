@@ -58,6 +58,7 @@ class HeroDetailViewController: UIViewController {
         battlesCollectionView.register(UINib(nibName: BattleSmallCell.nibName, bundle: nil), forCellWithReuseIdentifier: BattleSmallCell.defaultReuseIdentifier)
         
         battlesCollectionView.dataSource = self
+        battlesCollectionView.delegate = self
     }
     
     private func loadHeroDetails() {
@@ -74,6 +75,8 @@ class HeroDetailViewController: UIViewController {
         
         if viewModel.battles.isEmpty {
             battlesCollectionView.removeFromSuperview()
+        } else {
+            battlesCollectionView.reloadData()
         }
     }
     
@@ -104,6 +107,14 @@ extension HeroDetailViewController: UICollectionViewDataSource {
         
         cell.viewModel = cellViewModel
         return cell
+    }
+}
+
+// MARK: UICollectionViewDelegate
+extension HeroDetailViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        viewModel.didSelectRow(at: indexPath)
     }
 }
 

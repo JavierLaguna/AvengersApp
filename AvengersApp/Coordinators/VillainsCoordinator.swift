@@ -11,15 +11,17 @@ import UIKit
 class VillainsCoordinator: Coordinator {
     
     // MARK: Constants
-    let repository: VillainsRepository
-    
+    private let repository: VillainsRepository
+    private let battlesRepository: BattlesRepository
+
     // MARK: Variables
     var villainsViewModel: VillainsViewModel?
     
     // MARK: Lifecycle
-    init(repository: VillainsRepository) {
+    init(repository: VillainsRepository, battlesRepository: BattlesRepository) {
         self.repository = repository
-        
+        self.battlesRepository = battlesRepository
+
         super.init()
     }
     
@@ -55,6 +57,7 @@ class VillainsCoordinator: Coordinator {
     private func villainDetail(_ villain: Villain) {
         let detailCoordinator = HeroDetailCoordinator(villain: villain,
                                                       villainsRepository: repository,
+                                                      battlesRepository: battlesRepository,
                                                       presenter: presenter)
         
         self.addChildCoordinator(detailCoordinator)

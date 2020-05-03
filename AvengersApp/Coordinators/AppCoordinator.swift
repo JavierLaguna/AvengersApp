@@ -41,11 +41,13 @@ class AppCoordinator: Coordinator {
         }
         
         let tabBarCoordinators: [Coordinator] = [
-            AvengersCoordinator(repository: avengersRepository),
+            AvengersCoordinator(repository: avengersRepository,
+                                battlesRepository: battlesRepository),
             BattlesCoordinator(repository: battlesRepository,
                                avengersRepository: avengersRepository,
                                villainsRepository: villainsRepository),
-            VillainsCoordinator(repository: villainsRepository)
+            VillainsCoordinator(repository: villainsRepository,
+                                battlesRepository: battlesRepository)
         ]
         
         tabBarCoordinators.forEach { [weak self] coordinator in

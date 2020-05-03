@@ -24,7 +24,6 @@ class BattleDetailViewModel {
     
     // MARK: Variables
     weak var coordinatorDelegate: BattleDetailCoordinatorDelegate?
-//    weak var viewDelegate: CreateBattleViewDelegate?
     
     // MARK: Lifecycle
     init(battle: Battle, repository: BattlesRepository) {

@@ -13,6 +13,7 @@ class HeroDetailCoordinator: Coordinator {
     // MARK: Constants
     private let avengersRepository: AvengersRepository?
     private let villainsRepository: VillainsRepository?
+    private let battlesRepository: BattlesRepository?
     private let avenger: Avenger?
     private let villain: Villain?
     private let heroType: HeroType
@@ -24,11 +25,13 @@ class HeroDetailCoordinator: Coordinator {
     // MARK: Lifecycle
     init(avenger: Avenger,
          avengersRepository: AvengersRepository,
+         battlesRepository: BattlesRepository,
          presenter: UINavigationController) {
         
         self.heroType = .avenger
         self.avenger = avenger
         self.avengersRepository = avengersRepository
+        self.battlesRepository = battlesRepository
         
         self.villain = nil
         self.villainsRepository = nil
@@ -38,11 +41,13 @@ class HeroDetailCoordinator: Coordinator {
     
     init(villain: Villain,
          villainsRepository: VillainsRepository,
+         battlesRepository: BattlesRepository,
          presenter: UINavigationController) {
         
         self.heroType = .villain
         self.villain = villain
         self.villainsRepository = villainsRepository
+        self.battlesRepository = battlesRepository
         
         self.avenger = nil
         self.avengersRepository = nil
@@ -118,6 +123,19 @@ class HeroDetailCoordinator: Coordinator {
         presenter.present(editHeroPowerVC, animated: true, completion: nil)
     }
     
+    private func showBattleDetail(battle: Battle) {
+        guard let battlesRepository = battlesRepository else {
+            return Log.error("Unexpected battlesRepository is nil")
+        }
+        
+        let battleDetailVM = BattleDetailViewModel(battle: battle, repository: battlesRepository)
+        let battleDetailVC = BattleDetailViewController(viewModel: battleDetailVM)
+        
+        battleDetailVM.coordinatorDelegate = self
+        
+        presenter.present(battleDetailVC, animated: true)
+    }
+    
     override func finish() {
         parentCoordinator?.childDidFinish(self)
     }
@@ -134,6 +152,10 @@ extension HeroDetailCoordinator: AvengerDetailCoordinatorDelegate, VillainDetail
         editVillainPower(villain: villain)
     }
     
+    func battleDetail(for battle: Battle) {
+        showBattleDetail(battle: battle)
+    }
+    
     func viewDidFinish() {
         finish()
     }
@@ -148,5 +170,14 @@ extension HeroDetailCoordinator: EditHeroPowerCoordinatorDelegate {
         }
         
         presenter.dismiss(animated: true, completion: nil)
+    }
+}
+
+// MARK: BattleDetailCoordinatorDelegate
+extension HeroDetailCoordinator: BattleDetailCoordinatorDelegate {
+    
+    func battleDeleted() {
+        presenter.dismiss(animated: true, completion: nil)
+        heroDetailViewModel?.refreshHero()
     }
 }

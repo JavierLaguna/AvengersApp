@@ -11,6 +11,7 @@ import UIKit
 
 protocol AvengerDetailCoordinatorDelegate: class {
     func editPower(for avenger: Avenger)
+    func battleDetail(for battle: Battle)
     func viewDidFinish()
 }
 
@@ -49,7 +50,9 @@ class AvengerDetailViewModel: HeroDetailViewModel {
     var heroModified: Bool = false
     
     func didSelectRow(at indexPath: IndexPath) {
-        // TODO
+        guard indexPath.row < battles.count else { return }
+    
+        coordinatorDelegate?.battleDetail(for: battles[indexPath.row].battle)
     }
     
     func editPower() {
