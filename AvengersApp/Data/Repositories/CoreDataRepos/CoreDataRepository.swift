@@ -9,6 +9,6 @@
 import Foundation
 
 protocol CoreDataRepository {
-    var database: CoreDataDatabase { set get }
+    var database: CoreDataDatabase { get }
     var entityName: String { get }
 }

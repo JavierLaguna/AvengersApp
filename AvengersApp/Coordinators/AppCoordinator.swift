@@ -13,20 +13,22 @@ class AppCoordinator: Coordinator {
     private let window: UIWindow
     
     // MARK: Repositories Injection
+    private let database = CoreDataDatabase()
+    
     lazy private var settingsRepository: SettingsRepository = {
         return SettingsRepositoryUserDefaults()
     }()
     
     lazy private var avengersRepository: AvengersRepository = {
-        return AvengersRepositoryCoreData()
+        return AvengersRepositoryCoreData(database: database)
     }()
     
     lazy private var battlesRepository: BattlesRepository = {
-        return BattlesRepositoryCoreData()
+        return BattlesRepositoryCoreData(database: database)
     }()
     
     lazy private var villainsRepository: VillainsRepository = {
-        return VillainsRepositoryCoreData()
+        return VillainsRepositoryCoreData(database: database)
     }()
     
     init(window: UIWindow) {

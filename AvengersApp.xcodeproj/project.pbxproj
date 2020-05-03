@@ -447,9 +447,9 @@
 		49D6581C24574FED000EBF4B /* CoreDataRepos */ = {
 			isa = PBXGroup;
 			children = (
+				49D6581A24574C01000EBF4B /* CoreDataRepository.swift */,
 				49D658162457495D000EBF4B /* AvengersRepositoryCoreData.swift */,
 				493ABA25245C03E300C41295 /* BattlesRepositoryCoreData.swift */,
-				49D6581A24574C01000EBF4B /* CoreDataRepository.swift */,
 				49AE3DCE2458AB340099D447 /* VillainsRepositoryCoreData.swift */,
 			);
 			path = CoreDataRepos;
