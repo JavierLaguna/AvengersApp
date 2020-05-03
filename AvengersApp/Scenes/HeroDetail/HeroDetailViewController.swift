@@ -67,7 +67,7 @@ class HeroDetailViewController: UIViewController {
         biographyContentLabel.textColor = viewModel.tintColor
         
         if viewModel.battles.isEmpty {
-            battlesCollectionView.removeFromSuperview()
+            battlesCollectionView?.removeFromSuperview()
         } else {
             battlesCollectionView.reloadData()
         }
