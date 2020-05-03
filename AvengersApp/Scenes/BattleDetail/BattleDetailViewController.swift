@@ -87,6 +87,8 @@ class BattleDetailViewController: UIViewController {
     }
     
     @IBAction private func onTapDeleteButton(_ sender: Any) {
-        
+        showDeleteAlert(title: "¿Seguro que quieres borrar esta Batalla?") { [weak self] in
+            self?.viewModel.deleteBattle()
+        }
     }
 }

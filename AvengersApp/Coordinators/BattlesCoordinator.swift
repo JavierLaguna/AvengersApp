@@ -76,6 +76,8 @@ class BattlesCoordinator: Coordinator {
         let battleDetailVM = BattleDetailViewModel(battle: battle, repository: repository)
         let battleDetailVC = BattleDetailViewController(viewModel: battleDetailVM)
         
+        battleDetailVM.coordinatorDelegate = self
+        
         presenter.pushViewController(battleDetailVC, animated: true)
     }
     
@@ -96,3 +98,11 @@ extension BattlesCoordinator: BattlesCoordinatorDelegate {
     }
 }
 
+// MARK: BattleDetailCoordinatorDelegate
+extension BattlesCoordinator: BattleDetailCoordinatorDelegate {
+    
+    func battleDeleted() {
+        presenter.popViewController(animated: true)
+        battlesViewModel?.refreshData()
+    }
+}

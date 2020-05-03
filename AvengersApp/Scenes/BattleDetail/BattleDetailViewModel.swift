@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol BattleDetailCoordinatorDelegate: class {
+    func battleDeleted()
+}
+
 class BattleDetailViewModel {
     
     // MARK: Constants
@@ -19,7 +23,7 @@ class BattleDetailViewModel {
     let villainImage: UIImage?
     
     // MARK: Variables
-//    weak var coordinatorDelegate: CreateBattleCoordinatorDelegate?
+    weak var coordinatorDelegate: BattleDetailCoordinatorDelegate?
 //    weak var viewDelegate: CreateBattleViewDelegate?
     
     // MARK: Lifecycle
@@ -35,6 +39,7 @@ class BattleDetailViewModel {
     
     // MARK: Public Functions
     func deleteBattle() {
-        // TODO
+        repository.deleteBattle(battle)
+        coordinatorDelegate?.battleDeleted()
     }
 }
