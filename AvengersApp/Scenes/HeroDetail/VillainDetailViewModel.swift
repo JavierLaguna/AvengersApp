@@ -11,6 +11,7 @@ import UIKit
 
 protocol VillainDetailCoordinatorDelegate: class {
     func editPower(for villain: Villain)
+    func battleDetail(for battle: Battle)
     func viewDidFinish()
 }
 
@@ -19,7 +20,7 @@ protocol VillainDetailViewDelegate: class {
 }
 
 class VillainDetailViewModel: HeroDetailViewModel {
-
+    
     // MARK: Constants
     let repository: VillainsRepository
     
@@ -44,12 +45,14 @@ class VillainDetailViewModel: HeroDetailViewModel {
         return villain.battles?.compactMap { battle in
             guard let battle = battle as? Battle else { return nil }
             return BattleSmallCellViewModel(battle)
-        } ?? []
+            } ?? []
     }
     var heroModified: Bool = false
     
     func didSelectRow(at indexPath: IndexPath) {
-        // TODO
+        guard indexPath.row < battles.count else { return }
+        
+        coordinatorDelegate?.battleDetail(for: battles[indexPath.row].battle)
     }
     
     func editPower() {
@@ -58,13 +61,13 @@ class VillainDetailViewModel: HeroDetailViewModel {
     
     func refreshHero() {
         guard let name = villain.name,
-              let villain = repository.fetchVillainBy(name: name) else {
-                  return Log.error("Can not fetch avenger from repo")
-          }
-          
-          self.villain = villain
-          self.heroModified = true
-          viewDelegate?.villainFetched()
+            let villain = repository.fetchVillainBy(name: name) else {
+                return Log.error("Can not fetch avenger from repo")
+        }
+        
+        self.villain = villain
+        self.heroModified = true
+        viewDelegate?.villainFetched()
     }
     
     func viewDidFinish() {
