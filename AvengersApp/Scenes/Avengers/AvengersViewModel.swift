@@ -18,9 +18,13 @@ protocol AvengersViewDelegate: class {
 }
 
 class AvengersViewModel {
+    
+    // MARK: Constants
+    let repository: AvengersRepository
+    
+    // MARK: Variables
     weak var coordinatorDelegate: AvengersCoordinatorDelegate?
     weak var viewDelegate: AvengersViewDelegate?
-    let repository: AvengersRepository
     var avengerCellViewModels: [HeroCellViewModel] = []
     var avengers = [Avenger]() {
         didSet {
@@ -28,10 +32,12 @@ class AvengersViewModel {
         }
     }
     
+    // MARK: Lifecycle
     init(repository: AvengersRepository) {
         self.repository = repository
     }
     
+    // MARK: Public Functions
     func viewWasLoaded() {
         fetchAvengers()
     }
@@ -56,6 +62,7 @@ class AvengersViewModel {
         coordinatorDelegate?.didSelect(avenger: avengers[indexPath.row])
     }
     
+    // MARK: Private Functions
     private func fetchAvengers() {
         avengers = repository.fetchAllAvengers()
         viewDelegate?.avengersFetched()

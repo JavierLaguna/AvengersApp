@@ -82,7 +82,7 @@ class BattlesCoordinator: Coordinator {
         presenter.pushViewController(battleDetailVC, animated: true)
     }
     
-    override func finish() { // TODO THIS ON ALL
+    override func finish() {
         self.battlesViewModel = nil
     }
 }

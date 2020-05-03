@@ -36,11 +36,10 @@ class HeroDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureUI()
         configureBattlesCollection()
         loadHeroDetails()
     }
-    
+        
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
@@ -48,12 +47,6 @@ class HeroDetailViewController: UIViewController {
     }
     
     // MARK: Private Functions
-    private func configureUI() {
-        // TODO FIX
-        let backButton = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
-        navigationItem.backBarButtonItem = backButton
-    }
-    
     private func configureBattlesCollection() {
         battlesCollectionView.register(UINib(nibName: BattleSmallCell.nibName, bundle: nil), forCellWithReuseIdentifier: BattleSmallCell.defaultReuseIdentifier)
         

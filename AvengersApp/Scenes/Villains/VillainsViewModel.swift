@@ -18,9 +18,13 @@ protocol VillainsViewDelegate: class {
 }
 
 class VillainsViewModel {
+    
+    // MARK: Constants
+    let repository: VillainsRepository
+    
+    // MARK: Variables
     weak var coordinatorDelegate: VillainsCoordinatorDelegate?
     weak var viewDelegate: VillainsViewDelegate?
-    let repository: VillainsRepository
     var villainCellViewModels: [HeroCellViewModel] = []
     var villains = [Villain]() {
         didSet {
@@ -28,10 +32,12 @@ class VillainsViewModel {
         }
     }
     
+    // MARK: Lifecycle
     init(repository: VillainsRepository) {
         self.repository = repository
     }
     
+    // MARK: Public Functions
     func viewWasLoaded() {
         fetchVillains()
     }
@@ -54,6 +60,7 @@ class VillainsViewModel {
         coordinatorDelegate?.didSelect(villain: villains[indexPath.row])
     }
     
+    // MARK: Private Functions
     private func fetchVillains() {
         villains = repository.fetchAllVillains()
         viewDelegate?.villainsFetched()
