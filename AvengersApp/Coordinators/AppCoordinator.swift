@@ -34,7 +34,6 @@ class AppCoordinator: Coordinator {
     }
     
     override func start() {
-        configureUI()
         
         if settingsRepository.isFirstAppLaunch() {
             loadJsonData()
@@ -57,20 +56,16 @@ class AppCoordinator: Coordinator {
             coordinator.start()
         }
         
-        let tabBarController = UITabBarController()
-        tabBarController.tabBar.tintColor = UIColor.blueMain
-        tabBarController.viewControllers = tabBarCoordinators.map { $0.presenter }
+        let mainTabBarVM = MainTabBarViewModel(tabs: tabBarCoordinators.map { $0.presenter }, repository: settingsRepository)
+        let mainTabBar = MainTabBarController(viewModel: mainTabBarVM)
         
-        window.rootViewController = tabBarController
+        mainTabBarVM.viewDelegate = mainTabBar
+      
+        window.rootViewController = mainTabBar
         window.makeKeyAndVisible()
     }
     
     override func finish() {}
-    
-    // MARK: Private functions
-    private func configureUI() {
-        UINavigationBar.appearance().tintColor = .blueMain
-    }
 }
 
 // MARK: Load JSON data

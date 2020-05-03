@@ -33,7 +33,8 @@ class BattlesCoordinator: Coordinator {
     override func start() {
         presenter.tabBarItem.image = UIImage(imageLiteralResourceName: "ic_tab_battles")
         presenter.tabBarItem.title = "Battles"
-        
+        presenter.tabBarItem.tag = 1
+
         let battlesViewModel = BattlesViewModel(repository: repository)
         let battlesViewController = BattlesViewController(viewModel: battlesViewModel)
         

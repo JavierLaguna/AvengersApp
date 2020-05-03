@@ -11,4 +11,6 @@ import Foundation
 protocol SettingsRepository {
     func isFirstAppLaunch() -> Bool
     func setFirstAppLaunch(_ value: Bool)
+    func getSelectedTab() -> Int?
+    func setSelectedTab(tag: Int)
 }

@@ -28,6 +28,7 @@ class VillainsCoordinator: Coordinator {
     override func start() {
         presenter.tabBarItem.image = UIImage(imageLiteralResourceName: "ic_tab_villain")
         presenter.tabBarItem.title = "Villains"
+        presenter.tabBarItem.tag = 2
         
         let villainsViewModel = VillainsViewModel(repository: repository)
         let villainsViewController = VillainsViewController(viewModel: villainsViewModel)

@@ -28,6 +28,7 @@ class AvengersCoordinator: Coordinator {
     override func start() {
         presenter.tabBarItem.image = UIImage(imageLiteralResourceName: "ic_tab_heroes")
         presenter.tabBarItem.title = "Avengers"
+        presenter.tabBarItem.tag = 0
         
         let avengersViewModel = AvengersViewModel(repository: repository)
         let avengersViewController = AvengersViewController(viewModel: avengersViewModel)
