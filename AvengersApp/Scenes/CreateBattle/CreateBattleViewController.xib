@@ -93,7 +93,7 @@
                                     <rect key="frame" x="0.0" y="218" width="366" height="138"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c5E-Ov-g33" userLabel="background">
-                                            <rect key="frame" x="69.5" y="2" width="225.5" height="132"/>
+                                            <rect key="frame" x="69.5" y="0.0" width="227.5" height="138"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </view>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_villain_thanos" translatesAutoresizingMaskIntoConstraints="NO" id="Qlq-g4-VkL">
@@ -118,7 +118,7 @@
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstItem="c5E-Ov-g33" firstAttribute="bottom" secondItem="Qlq-g4-VkL" secondAttribute="bottom" constant="-2" id="Hpw-Dk-Jgj"/>
+                                        <constraint firstItem="c5E-Ov-g33" firstAttribute="bottom" secondItem="Qlq-g4-VkL" secondAttribute="bottom" constant="2" id="Hpw-Dk-Jgj"/>
                                         <constraint firstItem="S6W-O2-Onl" firstAttribute="top" secondItem="Qlq-g4-VkL" secondAttribute="top" constant="-20" id="Jpz-95-x3R"/>
                                         <constraint firstItem="S6W-O2-Onl" firstAttribute="trailing" secondItem="Qlq-g4-VkL" secondAttribute="trailing" constant="20" id="M4h-Xk-UrY"/>
                                         <constraint firstAttribute="bottom" secondItem="Qlq-g4-VkL" secondAttribute="bottom" constant="2" id="PL9-v0-NCZ"/>
@@ -127,8 +127,8 @@
                                         <constraint firstItem="Qlq-g4-VkL" firstAttribute="top" secondItem="qz7-6r-QoM" secondAttribute="top" constant="2" id="f56-ON-tSP"/>
                                         <constraint firstItem="WyT-Lw-iAb" firstAttribute="centerY" secondItem="qz7-6r-QoM" secondAttribute="centerY" id="hjU-Dr-w4w"/>
                                         <constraint firstItem="c5E-Ov-g33" firstAttribute="leading" secondItem="Qlq-g4-VkL" secondAttribute="leading" constant="-2" id="t8a-ug-uf4"/>
-                                        <constraint firstItem="c5E-Ov-g33" firstAttribute="trailing" secondItem="Qlq-g4-VkL" secondAttribute="trailing" id="uP5-HQ-v7f"/>
-                                        <constraint firstItem="c5E-Ov-g33" firstAttribute="top" secondItem="Qlq-g4-VkL" secondAttribute="top" id="wpq-JT-PyD"/>
+                                        <constraint firstItem="c5E-Ov-g33" firstAttribute="trailing" secondItem="Qlq-g4-VkL" secondAttribute="trailing" constant="2" id="uP5-HQ-v7f"/>
+                                        <constraint firstItem="c5E-Ov-g33" firstAttribute="top" secondItem="Qlq-g4-VkL" secondAttribute="top" constant="-2" id="wpq-JT-PyD"/>
                                     </constraints>
                                 </view>
                             </subviews>
