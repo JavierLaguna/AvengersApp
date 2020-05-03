@@ -89,7 +89,7 @@
                                     <rect key="frame" x="0.0" y="218" width="374" height="138"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SRk-mR-yyt" userLabel="background">
-                                            <rect key="frame" x="73.5" y="2" width="225.5" height="132"/>
+                                            <rect key="frame" x="73.5" y="0.0" width="227.5" height="138"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </view>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_villain_thanos" translatesAutoresizingMaskIntoConstraints="NO" id="Bes-vg-YS4">
@@ -107,11 +107,11 @@
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="SRk-mR-yyt" firstAttribute="leading" secondItem="Bes-vg-YS4" secondAttribute="leading" constant="-2" id="3T2-bM-G10"/>
-                                        <constraint firstItem="SRk-mR-yyt" firstAttribute="top" secondItem="Bes-vg-YS4" secondAttribute="top" id="94F-uv-lNK"/>
+                                        <constraint firstItem="SRk-mR-yyt" firstAttribute="top" secondItem="Bes-vg-YS4" secondAttribute="top" constant="-2" id="94F-uv-lNK"/>
                                         <constraint firstItem="Bes-vg-YS4" firstAttribute="centerX" secondItem="RdW-D9-z7m" secondAttribute="centerX" id="Ifv-QL-6HT"/>
                                         <constraint firstItem="q56-AU-2xD" firstAttribute="top" secondItem="Bes-vg-YS4" secondAttribute="top" constant="-20" id="PbC-34-PdX"/>
-                                        <constraint firstItem="SRk-mR-yyt" firstAttribute="trailing" secondItem="Bes-vg-YS4" secondAttribute="trailing" id="WQA-2v-gSN"/>
-                                        <constraint firstItem="SRk-mR-yyt" firstAttribute="bottom" secondItem="Bes-vg-YS4" secondAttribute="bottom" constant="-2" id="ffx-Ha-SI0"/>
+                                        <constraint firstItem="SRk-mR-yyt" firstAttribute="trailing" secondItem="Bes-vg-YS4" secondAttribute="trailing" constant="2" id="WQA-2v-gSN"/>
+                                        <constraint firstItem="SRk-mR-yyt" firstAttribute="bottom" secondItem="Bes-vg-YS4" secondAttribute="bottom" constant="2" id="ffx-Ha-SI0"/>
                                         <constraint firstItem="q56-AU-2xD" firstAttribute="trailing" secondItem="Bes-vg-YS4" secondAttribute="trailing" constant="20" id="vuF-8b-60B"/>
                                         <constraint firstItem="Bes-vg-YS4" firstAttribute="top" secondItem="RdW-D9-z7m" secondAttribute="top" constant="2" id="w2s-ol-mDb"/>
                                         <constraint firstAttribute="bottom" secondItem="Bes-vg-YS4" secondAttribute="bottom" constant="2" id="xhk-9D-UPl"/>

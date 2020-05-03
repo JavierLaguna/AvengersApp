@@ -27,6 +27,7 @@ App Features:
    - Edit Villain Power
 
 ###### Extra
+   - Manage CoreData database on a background context
    - Keep last tab visited
    
 ##### Author
