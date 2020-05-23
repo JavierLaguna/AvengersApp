@@ -14,7 +14,6 @@ struct SettingsRepositoryUserDefaults: SettingsRepository {
     private let firstAppLaunchKey = "UD_FirstAppLaunchKey"
     private let selectedTabKey = "UD_SelectedTabKey"
     
-    
     // MARK: SettingsRepository
     func isFirstAppLaunch() -> Bool {
         guard let isFirstAppLaunch = UserDefaults.standard.value(forKey: firstAppLaunchKey) as? Bool else {

@@ -29,6 +29,15 @@ App Features:
 ###### Extra
    - Manage CoreData database on a background context
    - Keep last tab visited
+
+### TODO
+   - Fix bug - lose context when change tab and is not the main tab screen
+   - Improve some equal classes for Avenger and Villains using protocols with generics
+   - Improve avoid delegation patter, implement Rx for example
+   - Notify database changes without delegates, impement Notifications for example
+   - Initial load JSON data on background thread
+   - Fix constraints console errors
+   - Improve UI for all devices
    
 ##### Author
 > Javier Laguna
