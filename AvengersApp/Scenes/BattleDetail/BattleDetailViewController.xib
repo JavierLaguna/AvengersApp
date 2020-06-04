@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -51,14 +51,14 @@
                                     <rect key="frame" x="0.0" y="0.0" width="374" height="138"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vhJ-cG-Y1i" userLabel="background">
-                                            <rect key="frame" x="73.5" y="0.0" width="227.5" height="138"/>
+                                            <rect key="frame" x="73.5" y="0.0" width="227" height="138"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </view>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_heroe_ironman" translatesAutoresizingMaskIntoConstraints="NO" id="Tut-oJ-f5z">
-                                            <rect key="frame" x="75.5" y="2" width="223.5" height="134"/>
+                                            <rect key="frame" x="75.5" y="2" width="223" height="134"/>
                                         </imageView>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rosette" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ykg-Qn-VQ6">
-                                            <rect key="frame" x="259" y="-19" width="60" height="61"/>
+                                            <rect key="frame" x="258.5" y="-19" width="60" height="61"/>
                                             <color key="tintColor" name="Gold"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="60" id="1gD-W9-vRw"/>
@@ -89,14 +89,14 @@
                                     <rect key="frame" x="0.0" y="218" width="374" height="138"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SRk-mR-yyt" userLabel="background">
-                                            <rect key="frame" x="73.5" y="0.0" width="227.5" height="138"/>
+                                            <rect key="frame" x="73.5" y="0.0" width="227" height="138"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </view>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_villain_thanos" translatesAutoresizingMaskIntoConstraints="NO" id="Bes-vg-YS4">
-                                            <rect key="frame" x="75.5" y="2" width="223.5" height="134"/>
+                                            <rect key="frame" x="75.5" y="2" width="223" height="134"/>
                                         </imageView>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rosette" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="q56-AU-2xD">
-                                            <rect key="frame" x="259" y="-19" width="60" height="61"/>
+                                            <rect key="frame" x="258.5" y="-19" width="60" height="61"/>
                                             <color key="tintColor" name="Gold"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="60" id="gQc-qA-LiQ"/>
@@ -104,7 +104,7 @@
                                             </constraints>
                                         </imageView>
                                     </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="SRk-mR-yyt" firstAttribute="leading" secondItem="Bes-vg-YS4" secondAttribute="leading" constant="-2" id="3T2-bM-G10"/>
                                         <constraint firstItem="SRk-mR-yyt" firstAttribute="top" secondItem="Bes-vg-YS4" secondAttribute="top" constant="-2" id="94F-uv-lNK"/>
